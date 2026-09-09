@@ -47,3 +47,36 @@ document.querySelectorAll('[data-filter]').forEach((button) => {
 document.querySelectorAll('[data-print]').forEach((button) => {
   button.addEventListener('click', () => window.print());
 });
+
+document.querySelectorAll('[data-contact-form]').forEach((form) => {
+  const status = form.querySelector('[data-form-status]');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    if (data.get('website')) return;
+
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const company = String(data.get('company') || '').trim();
+    const reason = String(data.get('reason') || '').trim();
+    const message = String(data.get('message') || '').trim();
+    const recipient = ['ximena.aguirre.rdz', 'gmail.com'].join('@');
+    const subject = `Portfolio inquiry: ${reason}${company ? ` from ${company}` : ''}`;
+    const body = [
+      `Hi Ximena,`,
+      '',
+      message,
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Company: ${company || 'Not provided'}`,
+      `Topic: ${reason}`
+    ].join('\n');
+
+    if (status) status.textContent = 'Your email draft is ready. Complete the send from your mail app.';
+    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+});
