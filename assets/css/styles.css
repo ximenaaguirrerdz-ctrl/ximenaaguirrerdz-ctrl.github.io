@@ -180,6 +180,7 @@ summary { cursor: pointer; padding: 1rem 2.5rem 1rem 0; font-weight: 750; list-s
 details > div { padding: 0 0 1.4rem 1.5rem; }
 
 .site-footer { color: var(--paper); background: var(--ink); padding-block: 3rem; }
+.site-footer .muted { color: #c8c3b7; }
 .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; }
 .footer-links { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
 .footer-note { margin: 3rem 0 0; font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 3.4rem); letter-spacing: -.04em; }
