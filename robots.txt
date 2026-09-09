@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ximenaaguirrerdz-ctrl.github.io/sitemap.xml
