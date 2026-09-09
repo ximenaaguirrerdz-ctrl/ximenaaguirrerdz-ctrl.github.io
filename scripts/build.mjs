@@ -117,9 +117,9 @@ function metricCard({ company, domain, title, delta, rows, context, contribution
   </figure>`;
 }
 
-function evidenceImage({ src, width, height, alt, label, caption, className = '' }) {
+function evidenceImage({ src, width, height, alt, label, caption, className = '', loading = 'lazy' }) {
   return `<figure class="evidence-image ${className}">
-    <a class="evidence-link" href="${src}" target="_blank" aria-label="Open this portfolio image at full size"><img src="${src}" width="${width}" height="${height}" alt="${alt}" loading="lazy" decoding="async"></a>
+    <a class="evidence-link" href="${src}" target="_blank" aria-label="Open this portfolio image at full size"><img src="${src}" width="${width}" height="${height}" alt="${alt}" loading="${loading}" decoding="async"${loading === 'eager' ? ' fetchpriority="high"' : ''}></a>
     <figcaption><span>${label}</span>${caption}</figcaption>
   </figure>`;
 }
@@ -181,8 +181,8 @@ const home = layout({
         </div>
       </div>
       <div class="hero-collage" aria-label="Selected portfolio evidence">
-        ${evidenceImage({src:'/assets/media/wework-anniversary-field-event.webp', width:'1050', height:'1400', alt:'WeWork Mexico anniversary event stage', label:'Field', caption:'A live brand moment.'})}
-        ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Newspaper coverage of a Belvo and Clip open-finance partnership', label:'PR', caption:'A complex partnership made legible.'})}
+        ${evidenceImage({src:'/assets/media/wework-anniversary-field-event.webp', width:'1050', height:'1400', alt:'WeWork Mexico anniversary event stage', label:'Field', caption:'A live brand moment.', loading:'eager'})}
+        ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Newspaper coverage of a Belvo and Clip open-finance partnership', label:'PR', caption:'A complex partnership made legible.', loading:'eager'})}
         <div class="collage-note"><strong>Senior + hands-on</strong><span>Set the narrative. Write the message. Prepare the spokesperson. Run the room. Read the result.</span></div>
       </div>
     </div>
