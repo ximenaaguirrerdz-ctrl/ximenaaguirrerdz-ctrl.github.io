@@ -127,9 +127,18 @@ function evidenceImage({ src, width, height, alt, label, caption, className = ''
 function videoCard({ id, title, meta }) {
   const brand = meta.split(' · ')[0];
   return `<a class="video-card" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer" data-kind="video">
-    <span class="video-poster" aria-hidden="true"><b>${brand}</b><i>Play ↗</i></span>
+    <span class="video-poster" aria-hidden="true"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" width="480" height="360" alt="" loading="lazy" decoding="async"><b>${brand}</b><i>Play ↗</i></span>
     <span class="video-copy"><small>${meta}</small><strong>${title}</strong><span>Watch on YouTube ↗</span></span>
   </a>`;
+}
+
+function voiceCard({ company, people, contribution, proof, links }) {
+  return `<article class="voice-card">
+    <header><span>${company}</span><h3>${people}</h3></header>
+    <p>${contribution}</p>
+    <strong>${proof}</strong>
+    <div class="voice-links">${links.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`).join('')}</div>
+  </article>`;
 }
 
 const impactMetrics = [
@@ -171,30 +180,51 @@ const home = layout({
   <section class="section hero hero-v2">
     <div class="site-shell hero-story">
       <div class="hero-copy">
-        <p class="eyebrow">360° communications · Europe + Latin America</p>
-        <h1>One company.<br>Many audiences.<br><span class="signal">One clear story.</span></h1>
-        <p class="lede">I lead communications from the inside out: aligning teams, earning external attention and turning the narrative into market moments that move business.</p>
-        <p class="hero-plain">Internal communications. External communications and PR. Field marketing and GTM. I treat them as one job—not three disconnected channels.</p>
+        <p class="eyebrow">I work across the full communications journey</p>
+        <h1>I find the story.<br><span class="signal">Then I make it travel.</span></h1>
+        <p class="lede">I’m Ximena. For ten years, I’ve worked wherever a company risks sounding like three different companies: inside its teams, in the press and in the market. I bring those versions back together.</p>
+        <p class="hero-plain">I’m a 360° communications leader: internal and external communications, PR, executive visibility, content, field marketing and CRM. I set the direction—and I stay close enough to the work to write, brief, produce and measure it.</p>
         <div class="hero-actions">
-          <a class="button button-solid" href="/case-studies/">See how I work</a>
-          <a class="button" href="/recruiter/">90-second view</a>
+          <a class="button button-solid" href="#my-story">Meet me through the work</a>
+          <a class="button" href="/writing/">Read + watch</a>
         </div>
+        <dl class="hero-facts"><div><dt>Experience</dt><dd>10 years</dd></div><div><dt>Markets</dt><dd>Europe + Latin America</dd></div><div><dt>Languages</dt><dd>Spanish + English</dd></div></dl>
       </div>
       <div class="hero-collage" aria-label="Selected portfolio evidence">
-        ${evidenceImage({src:'/assets/media/wework-anniversary-field-event.webp', width:'1050', height:'1400', alt:'WeWork Mexico anniversary event stage', label:'Field', caption:'A live brand moment.', loading:'eager'})}
-        ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Newspaper coverage of a Belvo and Clip open-finance partnership', label:'PR', caption:'A complex partnership made legible.', loading:'eager'})}
-        <div class="collage-note"><strong>Senior + hands-on</strong><span>Set the narrative. Write the message. Prepare the spokesperson. Run the room. Read the result.</span></div>
+        ${evidenceImage({src:'/assets/media/wework-anniversary-field-event.webp', width:'1050', height:'1400', alt:'WeWork Mexico anniversary event stage', label:'Field', caption:'I turn a narrative into a live moment.', loading:'eager'})}
+        ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Newspaper coverage of a Belvo and Clip open-finance partnership', label:'PR', caption:'I make complex work legible.', loading:'eager'})}
+        <div class="collage-note"><strong>Senior + hands-on</strong><span>I find the tension. I write the message. I prepare the voice. I build the moment. I read the result.</span></div>
       </div>
     </div>
   </section>
 
-  <section class="section section-light" aria-labelledby="range-title">
+  <section class="section section-light" id="my-story" aria-labelledby="story-title">
+    <div class="site-shell origin-story">
+      <div class="origin-copy">
+        <p class="eyebrow">How I became 360°</p>
+        <h2 id="story-title">I kept following the same story.</h2>
+        <p class="lede">I did not build my range by collecting channels. I built it by asking what a story needs next.</p>
+        <p>Sometimes it needs evidence. Sometimes a leader who can say it plainly. Sometimes employees need to hear it first. And sometimes the story needs a room, a follow-up journey and a commercial owner before it can do anything useful.</p>
+      </div>
+      <ol class="chapter-list" data-reveal>
+        <li><span>01 / Scrutiny</span><strong>CSR taught me to prove the claim.</strong><p>I learned to look for the person, place and consequence behind a corporate statement.</p></li>
+        <li><span>02 / Relevance</span><strong>Regional PR taught me to make it local.</strong><p>At Zendesk, I carried one thesis across six markets and the Caribbean without flattening what made each market care.</p></li>
+        <li><span>03 / Alignment</span><strong>Internal comms taught me to start inside.</strong><p>At WeWork, I built a clearer rhythm for 2,000+ colleagues because employees should not discover the company story last.</p></li>
+        <li><span>04 / Movement</span><strong>Field and CRM taught me where attention goes next.</strong><p>At 100 Ladrillos and Belvo, I connected PR, content, live moments, Sales follow-up and measurable demand.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="range-title">
     <div class="site-shell">
-      <div class="section-heading"><p class="eyebrow">What I actually do</p><h2 id="range-title">Three lenses.<br>One communications job.</h2><p>I help companies stay coherent across the audiences that matter most.</p></div>
-      <div class="range-grid" data-reveal>
-        <article class="range-card range-inside"><span>01 / Inside</span><h3>Internal communications</h3><p>Leadership messages, change, channels, all-hands and employee engagement.</p><b>Make the strategy usable.</b></article>
-        <article class="range-card range-outside"><span>02 / Outside</span><h3>External communications + PR</h3><p>Corporate narrative, media relations, reputation, executive visibility and thought leadership.</p><b>Make the company credible.</b></article>
-        <article class="range-card range-market"><span>03 / In the market</span><h3>Field marketing + GTM</h3><p>Launches, events, customer proof, Sales alignment, follow-up and measurement.</p><b>Make attention move.</b></article>
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">What 360° means in my hands</p><h2 id="range-title">I work the whole journey.</h2></div><p>I do not hand the story off when the press release is done. I follow it across the people, formats and moments that make it matter.</p></div>
+      <div class="practice-grid" data-reveal>
+        <article><span>01 / Narrative</span><h3>I find the real tension.</h3><p>Positioning, message architecture, launches and issues.</p></article>
+        <article><span>02 / Inside</span><h3>I make strategy usable.</h3><p>Leadership communication, change, all-hands and employee channels.</p></article>
+        <article><span>03 / Outside</span><h3>I earn credibility.</h3><p>PR, media relations, reputation and regional localization.</p></article>
+        <article><span>04 / Voice</span><h3>I write like the expert.</h3><p>Bylines, speeches, blogs, interviews, reports and customer stories.</p></article>
+        <article><span>05 / Moment</span><h3>I build the room.</h3><p>Field programmes, executive appearances, KOLs, creators and community.</p></article>
+        <article><span>06 / Movement</span><h3>I connect attention to action.</h3><p>CRM journeys, Sales handoff, follow-up, pipeline and learning.</p></article>
       </div>
       <div class="operator-line"><span>STRATEGY</span><i></i><span>WRITING</span><i></i><span>EXECUTION</span><i></i><span>MEASUREMENT</span></div>
     </div>
@@ -202,40 +232,43 @@ const home = layout({
 
   <section class="section impact-section" aria-labelledby="impact-title">
     <div class="site-shell">
-      <div class="section-heading section-heading-row"><div><p class="eyebrow">Results, with the missing context</p><h2 id="impact-title">What moved—and what the number measures.</h2></div><p>Four portfolio records. Each names the period, denominator and work around it. No dashboard theatre.</p></div>
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">I do not separate proof from context</p><h2 id="impact-title">I show what moved—and what the number measures.</h2></div><p>These four records name the period, denominator and work around the result. I would rather explain a number than decorate with it.</p></div>
       <div class="metric-grid">${impactMetrics.map(metricCard).join('')}</div>
-      <p class="evidence-line">Figures come from documented portfolio records. Public work is linked; underlying CRM and media reports stay private. <a href="/proof/">Method and evidence notes →</a></p>
+      <p class="evidence-line">I link public work whenever I can. My CRM and media reports remain private, so I label those figures as portfolio records and explain the denominator. <a href="/proof/">Read my evidence policy →</a></p>
     </div>
   </section>
 
-  <section class="section section-dark">
-    <div class="site-shell story-arc">
-      <div class="section-heading"><p class="eyebrow">The through-line</p><h2>Different jobs.<br>The same craft.</h2></div>
-      <div class="arc-grid" data-reveal>
-        <article><span>Zendesk</span><h3>Localize a global story.</h3><p>Regional PR across six markets and the Caribbean.</p><a href="/case-studies/#zendesk">External comms →</a></article>
-        <article><span>WeWork</span><h3>Build clarity on the inside.</h3><p>A regional communications rhythm for 2,000+ colleagues.</p><a href="/case-studies/#wework">Internal comms →</a></article>
-        <article><span>100 Ladrillos</span><h3>Earn trust before attention.</h3><p>PR, executive positioning, investor moments and issue readiness.</p><a href="/case-studies/#ladrillos">PR + events →</a></article>
-        <article><span>Belvo</span><h3>Connect narrative to market movement.</h3><p>Product stories, customer proof, field programmes and pipeline.</p><a href="/case-studies/#belvo">Integrated leadership →</a></article>
+  <section class="section section-dark" aria-labelledby="voices-title">
+    <div class="site-shell">
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">The voices I have helped carry</p><h2 id="voices-title">I write for the person—not around them.</h2></div><p>I turn expertise into a point of view that can live in a column, an interview, a keynote, a podcast or a difficult internal message.</p></div>
+      <div class="voice-ledger" data-reveal>
+        <article><div><span>Belvo</span><h3>Federica Gregorini</h3></div><p>I shaped executive narratives across columns, interviews and live fintech content.</p><strong>5 Fast Company columns</strong><a href="https://fastcompany.mx/author/federica-gregorini/" target="_blank" rel="noopener noreferrer">Open archive ↗</a></article>
+        <article><div><span>Zendesk</span><h3>Alex Barrera · Raúl Rodríguez · Dubra Valenzuela</h3></div><p>I developed regional storylines, executive copy and media moments for different markets and voices.</p><strong>30 Promesas + Forbes + a 4-part editorial series</strong><a href="/writing/#voices">See the evidence ↗</a></article>
+        <article><div><span>100 Ladrillos</span><h3>Iván Carmona · Hugo Blum</h3></div><p>I helped make an unfamiliar investment model clear through founder narratives, media and investor moments.</p><strong>14 items in the public press archive</strong><a href="https://somos.100ladrillos.com/prensa/" target="_blank" rel="noopener noreferrer">Open archive ↗</a></article>
+        <article><div><span>WeWork</span><h3>Álvaro Villar · Liliana Méndez</h3></div><p>I prepared leadership stories to work on television, in audio and with employees across the region.</p><strong>TV + podcast + 2,000+ colleagues</strong><a href="/writing/#voices">See the evidence ↗</a></article>
+        <article><div><span>ThinkY</span><h3>Maripi Lissarrague · Delfina Peralta Ramos</h3></div><p>I supported founder positioning around creativity, technology and the work behind award-winning campaigns.</p><strong>Founder interviews + TikTok Ad Awards story</strong><a href="/writing/#voices">See the evidence ↗</a></article>
+        <article><div><span>Expok</span><h3>Miguel Ángel Santinelli · Gustavo Pérez</h3></div><p>I translated social-impact expertise into columns, interviews, events and stories with a human consequence.</p><strong>CSR + human rights + institutional visibility</strong><a href="/writing/#voices">See the evidence ↗</a></article>
       </div>
     </div>
   </section>
 
   <section class="section visual-proof-section">
     <div class="site-shell">
-      <div class="section-heading section-heading-row"><div><p class="eyebrow">The work in public</p><h2>Coverage, content and rooms.</h2></div><p>Published work is labeled by role: authored, ghostwritten, editorial strategy, spokesperson preparation or media relations.</p></div>
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">My work in public</p><h2>I write. I brief. I produce. I follow through.</h2></div><p>I label every piece by my actual role: authored, ghostwritten, editorial strategy, spokesperson preparation, media relations or event work.</p></div>
       <div class="evidence-wall" data-reveal>
-        ${evidenceImage({src:'/assets/media/wework-alvaro-villar-tv.webp', width:'1280', height:'719', alt:'Álvaro Villar, CEO of WeWork Mexico, in a television interview on ADN40', label:'Media relations', caption:'Executive visibility · WeWork', className:'evidence-wide'})}
-        ${evidenceImage({src:'/assets/media/belvo-jpmorgan-press.webp', width:'1010', height:'1280', alt:'Print article about Belvo and J.P. Morgan', label:'External communications', caption:'Partnership narrative · Belvo'})}
-        ${evidenceImage({src:'/assets/media/expok-toks-bylined-column.webp', width:'1125', height:'1242', alt:'Newspaper page with a corporate responsibility guest column and Toks coverage', label:'Editorial + PR', caption:'Executive voice and earned coverage · Expok'})}
+        ${evidenceImage({src:'/assets/media/tedx-universidad-panamericana-event.webp', width:'900', height:'1200', alt:'Speaker on a red-lit TEDx Universidad Panamericana stage', label:'Events', caption:'I work the story behind the room · TEDx Universidad Panamericana'})}
+        ${evidenceImage({src:'/assets/media/wework-alvaro-villar-tv.webp', width:'1280', height:'719', alt:'Álvaro Villar, CEO of WeWork Mexico, in a television interview on ADN40', label:'Media relations', caption:'I prepare executive visibility · WeWork', className:'evidence-wide'})}
+        ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Print coverage of the Belvo and Clip open-finance partnership', label:'External communications', caption:'I turn technical partnerships into useful stories · Belvo', className:'evidence-wide'})}
+        ${evidenceImage({src:'/assets/media/expok-toks-bylined-column.webp', width:'1125', height:'1242', alt:'Newspaper page with a corporate responsibility guest column and Toks coverage', label:'Editorial + PR', caption:'I develop executive voice and earned stories · Expok'})}
       </div>
-      <div class="hero-actions"><a class="button button-solid" href="/writing/">Open writing + media</a><a class="button" href="/work/">Browse the work</a></div>
+      <div class="hero-actions"><a class="button button-solid" href="/writing/">Open my writing + media</a><a class="button" href="/work/">See my 360° work</a></div>
     </div>
   </section>
 
   <section class="section section-blue">
     <div class="site-shell split split-even">
-      <div><p class="eyebrow">Proof of work</p><blockquote class="quote">The strategy is only useful if another team can run it.<cite>Four open, practical systems</cite></blockquote></div>
-      <div><p class="lede">Field-to-pipeline operations. Newsworthy PR. Complex B2B launches. Responsible AI-assisted communications.</p><div class="hero-actions"><a class="button" href="/playbooks/">Open the playbooks</a><a class="button" href="${github}">View GitHub</a></div></div>
+      <div><p class="eyebrow">How I leave the work</p><blockquote class="quote">I build systems another team can actually run.<cite>Four open, practical playbooks</cite></blockquote></div>
+      <div><p class="lede">I have published the operating logic behind my field, PR, launch and responsible AI work—not the confidential material inside it.</p><div class="hero-actions"><a class="button" href="/playbooks/">Open my playbooks</a><a class="button" href="${github}">View my GitHub</a></div></div>
     </div>
   </section>`
 });
@@ -244,16 +277,49 @@ const work = layout({
   title: 'Work — Ximena Aguirre',
   description: 'Selected B2B marketing, communications, PR, field marketing and internal communications work across fintech, SaaS, proptech and ESG.',
   path: '/work/',
-  body: `${pageHero('Work / 360° view', 'The brief changes. The job stays whole.', 'Inside the company, outside it and in the market: selected work across internal communications, PR, executive visibility, launches and field marketing.', [['Inside', 'Leadership · change · employees'], ['Outside', 'PR · reputation · media'], ['Market', 'Field · launches · pipeline'], ['Scope', 'Europe + Latin America']])}
+  body: `${pageHero('My work / 360° view', 'I do not work in channel-sized boxes.', 'I move between the company, the press room and the market because that is how the work happens in real life. These are the assignments, systems and public traces behind that claim.', [['Inside', 'Leadership · change · employees'], ['Outside', 'PR · reputation · media'], ['Market', 'Field · launches · pipeline'], ['Scope', 'Europe + Latin America']])}
   <section class="section"><div class="site-shell">
     <div class="card-grid">
-      <article class="card card-wide"><div><div class="card-meta"><span>01 / Belvo</span><span>Fintech · Mexico</span></div><h3>Making open finance useful, credible and visible.</h3><p>Integrated communications, launches, customer proof, field marketing and measurement.</p></div><a href="/case-studies/#belvo">Read case →</a></article>
-      <article class="card card-wide"><div><div class="card-meta"><span>02 / 100 Ladrillos</span><span>Proptech · Mexico</span></div><h3>Building trust around a new investment model.</h3><p>PR, executive positioning, investor moments and issue readiness.</p></div><a href="/case-studies/#ladrillos">Read case →</a></article>
-      <article class="card"><div><div class="card-meta"><span>03 / WeWork</span><span>Internal · LatAm</span></div><h3>Communications infrastructure for 2,000+ people.</h3><p>Channel architecture, leadership rhythm and change communications.</p></div><a href="/case-studies/#wework">Read case →</a></article>
-      <article class="card"><div><div class="card-meta"><span>04 / Zendesk</span><span>SaaS · Regional</span></div><h3>One global thesis. Many local reasons to care.</h3><p>Regional PR localization across six markets and the Caribbean.</p></div><a href="/case-studies/#zendesk">Read case →</a></article>
-      <article class="card"><div><div class="card-meta"><span>05 / Expok</span><span>ESG · Agency</span></div><h3>Turning impact programs into stories that travel.</h3><p>Multi-client PR, media development and a three-person team.</p></div><a href="/case-studies/#expok">Read case →</a></article>
-      <article class="card card-wide"><div><div class="card-meta"><span>06 / Field system</span><span>Cross-company</span></div><h3>From conference badge to qualified commercial movement.</h3><p>A repeatable field-marketing workflow built around account intent, sales alignment and attribution.</p></div><a href="/case-studies/#field">Read case →</a></article>
-      <article class="card card-wide"><div><div class="card-meta"><span>07 / AI systems</span><span>Practical operations</span></div><h3>Use machines for leverage. Keep humans on judgment.</h3><p>Research, drafting, repurposing and QA workflows with explicit review gates.</p></div><a href="/case-studies/#ai">Read case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>01 / Belvo</span><span>Fintech · Mexico</span></div><h3>I made open finance useful, credible and visible.</h3><p>I connected launches, customer proof, PR, field marketing, CRM and measurement.</p></div><a href="/case-studies/#belvo">Read my case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>02 / 100 Ladrillos</span><span>Proptech · Mexico</span></div><h3>I built trust around a new investment model.</h3><p>I combined PR, founder positioning, investor moments, KOLs and issue readiness.</p></div><a href="/case-studies/#ladrillos">Read my case →</a></article>
+      <article class="card"><div><div class="card-meta"><span>03 / WeWork</span><span>Internal · LatAm</span></div><h3>I built communications infrastructure for 2,000+ people.</h3><p>I created the channel architecture, leadership rhythm and change communications.</p></div><a href="/case-studies/#wework">Read my case →</a></article>
+      <article class="card"><div><div class="card-meta"><span>04 / Zendesk</span><span>SaaS · Regional</span></div><h3>I gave one global thesis many local reasons to matter.</h3><p>I localized regional PR across six markets and the Caribbean.</p></div><a href="/case-studies/#zendesk">Read my case →</a></article>
+      <article class="card"><div><div class="card-meta"><span>05 / Expok</span><span>ESG · Agency</span></div><h3>I turned impact programmes into stories people could see.</h3><p>I led multi-client PR, executive content and a three-person team.</p></div><a href="/case-studies/#expok">Read my case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>06 / Field system</span><span>Cross-company</span></div><h3>I moved beyond the badge scan.</h3><p>I built a repeatable field workflow around account intent, Sales alignment, CRM and attribution.</p></div><a href="/case-studies/#field">Read my case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>07 / AI systems</span><span>Practical operations</span></div><h3>I use machines for leverage and keep humans on judgment.</h3><p>I build research, drafting, repurposing and QA workflows with explicit review gates.</p></div><a href="/case-studies/#ai">Read my case →</a></article>
+    </div>
+  </div></section>
+
+  <section class="section section-light" aria-labelledby="content-system-title"><div class="site-shell">
+    <div class="section-heading section-heading-row"><div><p class="eyebrow">My content system</p><h2 id="content-system-title">I make one idea work in more than one form.</h2></div><p>A 360° programme is not “more content.” It is a deliberate path from point of view to audience, moment and next action.</p></div>
+    <div class="workstream-grid" data-reveal>
+      <article><span>01</span><h3>I frame the narrative.</h3><p>Message house · issues · launches</p></article>
+      <article><span>02</span><h3>I build the evidence.</h3><p>Research · customer stories · reports</p></article>
+      <article><span>03</span><h3>I carry the voice.</h3><p>Bylines · blogs · speeches · video</p></article>
+      <article><span>04</span><h3>I earn the audience.</h3><p>PR · interviews · podcasts · KOLs</p></article>
+      <article><span>05</span><h3>I create the moment.</h3><p>Events · webinars · field programmes</p></article>
+      <article><span>06</span><h3>I design what happens next.</h3><p>CRM · nurture · Sales SLA · learning</p></article>
+    </div>
+  </div></section>
+
+  <section class="section section-dark" aria-labelledby="crm-title"><div class="site-shell">
+    <div class="section-heading section-heading-row"><div><p class="eyebrow">CRM + lifecycle · HubSpot + Salesforce</p><h2 id="crm-title">I do not stop at attendance.</h2></div><p>I plan the invitation, registration, reminders, lead state, context-rich Sales handoff and post-event learning as one journey.</p></div>
+    <ol class="crm-flow" data-reveal><li><span>01</span><b>Audience</b><small>I define account fit and intent.</small></li><li><span>02</span><b>Journey</b><small>I build invite, reminders and nurture.</small></li><li><span>03</span><b>Handoff</b><small>I set owner, context and a sub-24h action.</small></li><li><span>04</span><b>Movement</b><small>I track inquiry, opportunity and learning.</small></li></ol>
+    <div class="number-notes number-notes-dark"><div><strong>1,729</strong><span>MQLs in 2025 · +129.6% YoY across my integrated Belvo programme</span></div><div><strong>330</strong><span>Contact Us inquiries in 2025 · +35.3% YoY</span></div><div><strong>69</strong><span>Q4 deals in 2025 · +38% YoY</span></div></div>
+  </div></section>
+
+  <section class="section" aria-labelledby="moments-title"><div class="site-shell">
+    <div class="section-heading section-heading-row"><div><p class="eyebrow">Events + KOLs + creators</p><h2 id="moments-title">I build the room—and choose who belongs in it.</h2></div><p>I work across event thesis, speaker and expert relationships, creator partnerships, production, content capture and follow-up.</p></div>
+    <div class="moment-layout">
+      <div class="event-gallery" data-reveal>
+        ${evidenceImage({src:'/assets/media/wework-anniversary-field-event.webp', width:'1050', height:'1400', alt:'WeWork anniversary event stage', label:'Owned event', caption:'I shaped a live brand moment · WeWork'})}
+        ${evidenceImage({src:'/assets/media/tedx-universidad-panamericana-event.webp', width:'900', height:'1200', alt:'TEDx Universidad Panamericana stage', label:'Event archive', caption:'I work from the story and speaker to the room and its afterlife.'})}
+      </div>
+      <div class="campaign-ledger" data-reveal>
+        <article><span>100 Ladrillos · KOL</span><h3>Chicharito Hernández</h3><p>I helped connect a high-recognition partner story to the company’s investment narrative.</p><div><a href="https://www.eleconomista.com.mx/el-empresario/Chicharito-Hernandez-se-estrena-como-inversionista-con-100-Ladrillos-20230403-0050.html" target="_blank" rel="noopener noreferrer">Press story ↗</a><a href="https://vt.tiktok.com/ZSqSaBoNp/" target="_blank" rel="noopener noreferrer">Campaign video ↗</a></div></article>
+        <article><span>Zendesk · Expert/KOL</span><h3>Cecilia Hugony</h3><p>I coordinated expert and spokesperson content around a regional customer-experience narrative.</p><div><a href="https://www.youtube.com/playlist?list=PLidl0nsRAqfOR4aEhjK-gH3QSj77zBPNv" target="_blank" rel="noopener noreferrer">CXperiences playlist ↗</a></div></article>
+        <article><span>3AM · Creator content</span><h3>Selected campaign posts</h3><p>I worked with social-native formats earlier in my career without treating social as the whole strategy.</p><div><a href="https://www.instagram.com/p/BwNb3KxFzB_/" target="_blank" rel="noopener noreferrer">Post 01 ↗</a><a href="https://www.instagram.com/p/BwHWGR7llFi/" target="_blank" rel="noopener noreferrer">Post 02 ↗</a><a href="https://www.instagram.com/p/BwGbb-WFsWG/" target="_blank" rel="noopener noreferrer">Post 03 ↗</a></div></article>
+      </div>
     </div>
   </div></section>`
 });
@@ -269,7 +335,7 @@ const caseStudies = layout({
   <div class="site-shell">
     <article class="case-study" id="belvo">
       <aside class="case-side"><div class="case-number">01</div><div class="case-tags"><span class="tag">External comms</span><span class="tag">Field</span><span class="tag">GTM</span><span class="tag">Mexico</span></div></aside>
-      <div class="case-body"><p class="eyebrow">Belvo · 2024—present</p><h2>Make open finance useful before trying to make it famous.</h2><p class="case-deck">I own the Mexico communications and marketing narrative across product launches, PR, customer stories, executive visibility and field programmes.</p>
+      <div class="case-body"><p class="eyebrow">Belvo · 2024—2026</p><h2>Make open finance useful before trying to make it famous.</h2><p class="case-deck">I owned the Mexico communications and marketing narrative across product launches, PR, customer stories, executive visibility and field programmes.</p>
         <div class="case-brief"><div><span>Mandate</span><p>Give a regulated B2B fintech one coherent market story—and make it work for media, customers, prospects and Sales.</p></div><div><span>What I saw</span><p>“Open finance” was the category. Better credit decisions, verification and collection were the stories people could actually use.</p></div></div>
         <h3>What I did</h3><ul class="compact-list"><li>Built the narrative around practical outcomes and customer evidence.</li><li>Connected product news, spokesperson work, field programmes and commercial follow-up.</li><li>Worked hands-on across Product, Sales, Customer Success, Partnerships, Data, leadership and agencies.</li></ul>
         ${metricCard(impactMetrics[0])}
@@ -278,7 +344,7 @@ const caseStudies = layout({
           ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Newspaper story about the Belvo and Clip open-finance partnership', label:'PR outcome', caption:'Partnership story in print.'})}
           ${evidenceImage({src:'/assets/media/belvo-jpmorgan-press.webp', width:'1010', height:'1280', alt:'Print coverage of financial solutions from Belvo and J.P. Morgan', label:'PR outcome', caption:'A technical proposition translated for a business audience.'})}
         </div>
-        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://belvo.com/es/author/ximena-aguirre/', 'Ximena’s Belvo author archive')}</li><li>${external('https://belvo.com/es/blog/belvo-payjoy-financiamiento-celulares-mexico-datos-empleo/', 'PayJoy + employment-data customer story')}</li><li>${external('https://belvo.com/es/blog/smart-fit-belvo-pagos-recurrentes-open-finance/', 'Smart Fit + recurring payments story')}</li><li>${external('https://belvo.com/es/blog/belvo-banco-azteca-verificaciones-ingresos-credito/', 'Banco Azteca + income-verification story')}</li></ul>
+        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://belvo.com/es/author/ximena-aguirre/', 'My Belvo author archive')}</li><li>${external('https://fastcompany.mx/author/federica-gregorini/', 'Federica Gregorini — Fast Company columns')}</li><li>${external('https://belvo.com/es/blog/belvo-payjoy-financiamiento-celulares-mexico-datos-empleo/', 'PayJoy + employment-data customer story')}</li><li>${external('https://belvo.com/es/blog/smart-fit-belvo-pagos-recurrentes-open-finance/', 'Smart Fit + recurring payments story')}</li><li>${external('https://belvo.com/es/blog/belvo-banco-azteca-verificaciones-ingresos-credito/', 'Banco Azteca + income-verification story')}</li><li>${external('https://www.youtube.com/playlist?list=PLBp3o9hAmq8taGzI6hOop8VhGpL8SUrHF', 'Fintech Heroes — video playlist')}</li></ul>
         <div class="reconstruction"><strong>Evidence note.</strong> Public links verify the visible work. Performance figures come from documented portfolio records; underlying dashboards remain confidential.</div>
       </div>
     </article>
@@ -288,12 +354,13 @@ const caseStudies = layout({
         <div class="case-brief"><div><span>Mandate</span><p>Build confidence around an unfamiliar investment model for an investor community of roughly 40,000 people.</p></div><div><span>What I saw</span><p>The mechanism had to become visible: how it works, who participates, where the limits are and what proof exists.</p></div></div>
         <h3>What I did</h3><ul class="compact-list"><li>Shifted publicity from product claims toward education, evidence and credible external voices.</li><li>Led agency work, founder preparation, investor events and issue-response protocols.</li><li>Built news hooks around milestones that already mattered to the business.</li></ul>
         <div class="outcome outcome-context"><strong>8×+</strong><span>indexed visibility during the documented portfolio period.</span><p>The point was not volume alone: PR, executive positioning and investor moments operated as one trust programme.</p></div>
+        <div class="number-notes"><div><strong>55+</strong><span>media appearances across my 13-month programme</span></div><div><strong>14</strong><span>items still visible in the company’s public press archive</span></div><div><strong>40K</strong><span>approximate investor community I communicated with</span></div></div>
         <div class="video-feature-grid">
           ${videoCard({id:'UltD4toNKMM', title:'Iván Carmona — Construyendo el futuro con 100 Ladrillos', meta:'Founder visibility · PR + spokesperson preparation'})}
           ${videoCard({id:'dXUPVbkxzmk', title:'Ladrillowners: inversión inmobiliaria y gestión de riesgo', meta:'Owned event · content + experience strategy'})}
         </div>
-        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://www.eleconomista.com.mx/el-empresario/Chicharito-Hernandez-se-estrena-como-inversionista-con-100-Ladrillos-20230403-0050.html', 'El Economista — Chicharito joins as an investor')}</li><li>${external('https://lideresmexicanos.com/entrevistas/hugo-blum-e-ivan-carmona-100ladrillos', 'Líderes Mexicanos — founder interview')}</li><li>${external('https://100ladrillos.com/post/chicharito-se-une-a-100-ladrillos', '100 Ladrillos — company announcement')}</li></ul>
-        <div class="reconstruction"><strong>Role:</strong> PR strategy, agency leadership, spokesperson preparation, campaign and event support. Ximena does not claim authorship of independent coverage.</div>
+        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://somos.100ladrillos.com/prensa/', '100 Ladrillos — public press archive')}</li><li>${external('https://www.eleconomista.com.mx/el-empresario/Chicharito-Hernandez-se-estrena-como-inversionista-con-100-Ladrillos-20230403-0050.html', 'El Economista — Chicharito joins as an investor')}</li><li>${external('https://vt.tiktok.com/ZSqSaBoNp/', 'Chicharito campaign video')}</li><li>${external('https://lideresmexicanos.com/entrevistas/hugo-blum-e-ivan-carmona-100ladrillos', 'Líderes Mexicanos — Hugo Blum + Iván Carmona')}</li><li>${external('https://businessinsider.mx/como-ganar-juego-inversiones-inmobiliarias-opinion/', 'Business Insider — executive byline')}</li><li>${external('https://100ladrillos.com/post/chicharito-se-une-a-100-ladrillos', '100 Ladrillos — company announcement')}</li></ul>
+        <div class="reconstruction"><strong>My role:</strong> I led PR strategy, agency work, spokesperson preparation, campaign support and investor events. I do not claim authorship of independent coverage.</div>
       </div>
     </article>
     <article class="case-study" id="wework">
@@ -307,7 +374,7 @@ const caseStudies = layout({
           ${evidenceImage({src:'/assets/media/wework-hybrid-work-press.webp', width:'771', height:'1280', alt:'Newspaper coverage of hybrid work research by WeWork and Michael Page', label:'External communications', caption:'Research translated into a regional press story.'})}
           ${evidenceImage({src:'/assets/media/wework-alvaro-villar-tv.webp', width:'1280', height:'719', alt:'Álvaro Villar speaking about flexible workspaces on ADN40', label:'Media relations', caption:'Executive visibility on television.', className:'evidence-wide'})}
         </div>
-        <div class="reconstruction"><strong>Reconstruction.</strong> The framework reflects Ximena’s actual process. Original internal materials and incident details are intentionally not published.</div>
+        <div class="reconstruction"><strong>Reconstruction.</strong> This framework reflects my actual process. I intentionally keep original internal materials and incident details private.</div>
       </div>
     </article>
     <article class="case-study" id="zendesk">
@@ -320,8 +387,8 @@ const caseStudies = layout({
           ${videoCard({id:'T6OFh2cCdiM', title:'El poder de poner al cliente en el centro del negocio', meta:'Regional PR · spokesperson programme'})}
           ${videoCard({id:'RwEnBmEaXS4', title:'The importance of CX implementation in Latin America', meta:'Regional PR · research amplification'})}
         </div>
-        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://prensariotila.com/zendesk-presento-tendencias-en-experiencia-al-cliente-2022/', 'Prensario — CX Trends 2022 launch')}</li><li>${external('https://www.itsitio.com/soluciones/zendesk-tendencias-y-retos-para-la-experiencia-al-cliente-2022/', 'ITSitio — regional CX trends')}</li><li>${external('https://impactotic.co/empresas/las-empresas-que-inviertan-en-experiencia-del-cliente-tendran-mayor-rendimiento-en-2022-segun-encuesta-de-zendesk/', 'Impacto TIC — CX investment story')}</li></ul>
-        <div class="reconstruction"><strong>Role:</strong> regional PR strategy, localization, agency and spokesperson coordination, media relations. Independent articles are listed as earned-media outcomes, not bylines.</div>
+        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://expansion.mx/tecnologia/2020/10/16/alex-barrera-el-capitan-de-zendesk-en-america-latina', 'Expansión — Alex Barrera, 30 Promesas')}</li><li>${external('https://forbes.com.mx/la-importancia-de-la-implementacion-de-cx-en-las-empresas-de-latinoamerica-forbes-tech-future/', 'Forbes Future Talk — Alex Barrera')}</li><li>${external('https://forbes.com.mx/ad-experiencia-clientes-empleados-clave-exito-empresas/', 'Forbes — Raúl Rodríguez')}</li><li>${external('https://expansion.mx/empresas/2021/12/20/mejorar-la-experiencia-de-cliente-es-la-ventaja-competitiva-crucial', 'Expansión — Raúl Rodríguez')}</li><li>${external('https://www.eleconomista.es/economiahoy/opinion/noticias/10572655/05/20/Que-podemos-aprender-de-las-Pymes.html', 'El Economista — Dubra Valenzuela byline')}</li><li>${external('https://www.youtube.com/playlist?list=PLidl0nsRAqfOR4aEhjK-gH3QSj77zBPNv', 'Cecilia Hugony — CXperiences playlist')}</li></ul>
+        <div class="reconstruction"><strong>My role:</strong> I led regional PR strategy, localization, agency coordination, spokesperson preparation and media relations. I list independent stories as earned outcomes—not as my bylines.</div>
       </div>
     </article>
     <article class="case-study" id="expok">
@@ -334,8 +401,8 @@ const caseStudies = layout({
           ${evidenceImage({src:'/assets/media/expok-sustainability-press-1.webp', width:'1008', height:'1280', alt:'El Economista feature about sustainable development and Mexico policy', label:'Media outcome', caption:'Sustainability expertise made newsworthy.'})}
           ${evidenceImage({src:'/assets/media/expok-lth-press.webp', width:'966', height:'1280', alt:'NotiSUR newspaper coverage of LTH community and environmental programmes', label:'Account PR', caption:'Local programme, local consequence.'})}
         </div>
-        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://www.expoknews.com/etiqueta/lth/', 'Expok archive — LTH coverage and releases')}</li><li>${external('https://www.expoknews.com/lth-llevo-las-eco-jornadas-a-celaya-ninas-y-ninos-aprenden-a-cuidar-el-planeta-en-la-escuela-primaria-constitucion-de-1857/', 'LTH Eco Jornadas — Celaya')}</li><li>${external('https://www.expoknews.com/programa-de-educacion-ambiental-de-lth-imparte-eco-jornada-en-el-parque-chipinque-de-monterrey/', 'LTH environmental education — Monterrey')}</li></ul>
-        <div class="reconstruction"><strong>Role:</strong> account and PR leadership, story development, media materials and team quality. Archive items are evidence of the account work, not automatic authorship claims.</div>
+        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://mexico.iom.int/es/news/reconocen-la-oim-mexico-por-su-labor-social-en-la-migracion-con-el-premio-clares-2018', 'IOM Mexico — Premio CLARES')}</li><li>${external('https://conexionmigrante.com/2019-/09-/11/situacion-migratoria-se-debe-a-la-falta-de-respeto-a-los-derechos-humanos-miguel-angel-santinelli/', 'Conexión Migrante — migration and human rights')}</li><li>${external('https://oem.com.mx/elheraldodechihuahua/local/miguel-angel-santinelli-ramo-habla-sobre-la-generacion-c-14628673', 'El Heraldo de Chihuahua — Generación C')}</li><li>${external('https://presenterse.com/facultad-de-responsabilidad-social-de-la-anahuac-y-cmic-promoveran-edificaciones-mas-responsables/', 'Presenterse — Anáhuac + CMIC')}</li><li>${external('https://www.expoknews.com/etiqueta/lth/', 'Expok archive — LTH coverage and releases')}</li></ul>
+        <div class="reconstruction"><strong>My role:</strong> I led accounts, PR strategy, story development, media materials and team quality. I use archive items as evidence of account work—not as automatic authorship claims.</div>
       </div>
     </article>
     <article class="case-study" id="field">
@@ -385,6 +452,90 @@ const writingItems = [
   ['2024', 'An income estimator built from employment data', 'Product announcement', 'https://belvo.com/es/blog/belvo-estimador-ingresos-datos-de-empleo/']
 ];
 
+const voiceGroups = [
+  {
+    company: 'Belvo · executive voice',
+    people: 'Federica Gregorini',
+    contribution: 'I ghostwrote and edited points of view on open finance, payments, credit and collaboration—then carried the same voice into interviews and live content.',
+    proof: '5 columns in Fast Company’s public author archive',
+    links: [
+      ['Fast Company archive', 'https://fastcompany.mx/author/federica-gregorini/'],
+      ['Cuando el cobro se vuelve invisible', 'https://fastcompany.mx/2025/10/21/cuando-cobro-se-vuelve-invisible-plataformas-pago/'],
+      ['Inclusión financiera + colaboración', 'https://fastcompany.mx/2025/05/27/no-podemos-hablar-de-inclusion-financiera-sin-hablar-de-colaboracion/'],
+      ['3 claves para pagos en 2025', 'https://fastcompany.mx/2025/02/05/3-claves-exito-pagos-2025/'],
+      ['El arte de fidelizar', 'https://fastcompany.mx/2024/12/06/mas-alla-del-descuento-el-arte-de-fidelizar-a-tus-clientes-en-esta-temporada-alta/'],
+      ['Diversificar métodos de pago', 'https://fastcompany.mx/2024/10/29/valor-diversificar-metodos-pago-era-digital/'],
+      ['Emprendedor archive', 'https://emprendedor.com/author/federica-gregorini/'],
+      ['Mexico Business News archive', 'https://mexicobusiness.news/tag/federica-gregorini'],
+      ['The Fintech Times interview', 'https://thefintechtimes.com/em-conversa-improving-business-payments-in-mexico-with-belvo/'],
+      ['Fintech Heroes playlist', 'https://www.youtube.com/playlist?list=PLBp3o9hAmq8taGzI6hOop8VhGpL8SUrHF']
+    ]
+  },
+  {
+    company: '100 Ladrillos · founder voice',
+    people: 'Iván Carmona · Hugo Blum',
+    contribution: 'I developed and ghostwrote founder narratives that made fractional real-estate investing understandable without overselling certainty.',
+    proof: '14 public items in the company press archive',
+    links: [
+      ['Public press archive', 'https://somos.100ladrillos.com/prensa/'],
+      ['Líderes Mexicanos interview', 'https://lideresmexicanos.com/entrevistas/hugo-blum-e-ivan-carmona-100ladrillos'],
+      ['Business Insider byline', 'https://businessinsider.mx/como-ganar-juego-inversiones-inmobiliarias-opinion/'],
+      ['Oppenheimer interview', 'https://www.youtube.com/watch?v=a7ttDaiGD3U']
+    ]
+  },
+  {
+    company: 'WeWork · leadership voice',
+    people: 'Álvaro Villar · Liliana Méndez',
+    contribution: 'I prepared leadership narratives for external interviews, audio and internal channels—keeping the voice consistent for the market and for 2,000+ colleagues.',
+    proof: 'TV + leadership podcast + regional internal communications',
+    links: [
+      ['Álvaro Villar interview', 'https://www.youtube.com/watch?v=V7SzXUTj49g'],
+      ['Liliana Méndez podcast', 'https://open.spotify.com/episode/17agLGCAI2yClM7tDUf90P']
+    ]
+  },
+  {
+    company: 'Zendesk · regional executive voice',
+    people: 'Alex Barrera · Raúl Rodríguez · Dubra Valenzuela',
+    contribution: 'I built local storylines, executive copy and spokesperson moments around one regional customer-experience narrative.',
+    proof: '30 Promesas + Forbes and Expansión appearances + a 4-part editorial series',
+    links: [
+      ['Alex · 30 Promesas', 'https://expansion.mx/tecnologia/2020/10/16/alex-barrera-el-capitan-de-zendesk-en-america-latina'],
+      ['Alex · Forbes Future Talk', 'https://forbes.com.mx/la-importancia-de-la-implementacion-de-cx-en-las-empresas-de-latinoamerica-forbes-tech-future/'],
+      ['Raúl · Forbes', 'https://forbes.com.mx/ad-experiencia-clientes-empleados-clave-exito-empresas/'],
+      ['Raúl · Expansión', 'https://expansion.mx/empresas/2021/12/20/mejorar-la-experiencia-de-cliente-es-la-ventaja-competitiva-crucial'],
+      ['Alex · CX byline', 'https://asociaciondec-mx.org/opinion-de-expertos/por-que-latam-esta-a-la-vanguardia-en-cx/183/'],
+      ['Raúl · revenue byline', 'https://asociaciondec-mx.org/opinion-de-expertos/area-de-atencion-al-cliente-un-motor-de-ingresos/187/'],
+      ['Dubra · El Economista', 'https://www.eleconomista.es/economiahoy/opinion/noticias/10572655/05/20/Que-podemos-aprender-de-las-Pymes.html'],
+      ['Dubra · Publimark', 'https://publimark.cl/opinion/dubra-valenzuela-cuatro-tips-para-startups-y-pymes.html'],
+      ['Dubra · editorial series', 'https://es.linkedin.com/pulse/qu%C3%A9-podemos-aprender-de-las-pymes-dubra-valenzuela']
+    ]
+  },
+  {
+    company: 'ThinkY · founder positioning',
+    people: 'Maripi Lissarrague · Delfina Peralta Ramos',
+    contribution: 'I supported founder positioning around creativity, technology and the thinking behind campaigns—not just the award headline.',
+    proof: 'Joint founder interview + a four-award TikTok Ad Awards story',
+    links: [
+      ['Founder interview', 'https://www.youtube.com/watch?v=LyVIk0WbSZo'],
+      ['Maripi · Roastbrief', 'https://roastbrief.com.mx/2025/02/como-thinky-brillo-en-los-tiktok-ad-awards-una-entrevista-con-maripi-lissarrague/'],
+      ['Video interview', 'https://www.youtube.com/watch?v=TrwQLhySimU']
+    ]
+  },
+  {
+    company: 'Expok · CSR and social impact',
+    people: 'Miguel Ángel Santinelli · Gustavo Pérez',
+    contribution: 'I turned subject-matter expertise into bylines, interviews and institutional stories grounded in human rights, migration and responsible business.',
+    proof: '5 client accounts + a three-person PR team + public institutional coverage',
+    links: [
+      ['IOM Mexico recognition', 'https://mexico.iom.int/es/news/reconocen-la-oim-mexico-por-su-labor-social-en-la-migracion-con-el-premio-clares-2018'],
+      ['Migration and human rights', 'https://conexionmigrante.com/2019-/09-/11/situacion-migratoria-se-debe-a-la-falta-de-respeto-a-los-derechos-humanos-miguel-angel-santinelli/'],
+      ['Generación C', 'https://oem.com.mx/elheraldodechihuahua/local/miguel-angel-santinelli-ramo-habla-sobre-la-generacion-c-14628673'],
+      ['Anáhuac + CMIC', 'https://presenterse.com/facultad-de-responsabilidad-social-de-la-anahuac-y-cmic-promoveran-edificaciones-mas-responsables/'],
+      ['Leadership and survival', 'https://pymempresario.com/liderazgo-innovador-estrategia-de-supervivencia/']
+    ]
+  }
+];
+
 const videoItems = [
   { id: 'WuxH75mD_Gk', title: 'Fintech Heroes: Kueski and the future of digital credit in Mexico', meta: 'Belvo · editorial strategy + production' },
   { id: 'A65iBtccVz0', title: 'From the FinTech Mexico Festival 2026: Federica Gregorini', meta: 'Belvo · executive visibility' },
@@ -400,43 +551,51 @@ const videoItems = [
   { id: 'fNVqQnnt6nc', title: 'Patrimonio al alcance de la mano, ladrillo a ladrillo', meta: '100 Ladrillos · media conversation' },
   { id: 'kS76xlaqWgQ', title: 'Ladrillowners Monterrey', meta: '100 Ladrillos · field event' },
   { id: 'XyDL3LGsQ3Q', title: 'Zendesk | Eva García Luna', meta: 'Zendesk · regional spokesperson visibility' },
-  { id: '1slrrj0nlUk', title: 'La tecnología ayuda a humanizar la atención', meta: 'Zendesk · thought leadership' }
+  { id: '1slrrj0nlUk', title: 'La tecnología ayuda a humanizar la atención', meta: 'Zendesk · thought leadership' },
+  { id: 'LCcloRYfat4', title: 'Datos alternativos para impulsar el acceso al crédito en México', meta: 'Belvo · research story + executive visibility' },
+  { id: '4MEXKLd1brA', title: '100 Ladrillos: fondeo colectivo al alcance de tu mano', meta: '100 Ladrillos · founder visibility + media relations' },
+  { id: 'a7ttDaiGD3U', title: '100 Ladrillos: real estate within everyone’s reach', meta: '100 Ladrillos · Oppenheimer interview' },
+  { id: 'LyVIk0WbSZo', title: 'Maripi Lissarrague and Delfina Peralta Ramos in conversation', meta: 'ThinkY · founder positioning' },
+  { id: 'TrwQLhySimU', title: 'Maripi Lissarrague on ThinkY’s four TikTok Ad Awards', meta: 'ThinkY · media positioning' }
 ];
 
 const writing = layout({
   title: 'Writing & Media — Ximena Aguirre',
   description: 'Authored work, executive ghostwriting, public relations outcomes, interviews and video work by senior communications leader Ximena Aguirre.',
   path: '/writing/',
-  body: `${pageHero('Writing + media', 'The work leaves a paper trail.', 'Some pieces carry my byline. Some carry an executive’s. Some show up as coverage. The distinction matters—and it is labeled here.', [['Authored', 'My byline'], ['Ghostwritten', 'Executive voice'], ['Earned', 'PR outcome'], ['Format', 'Print · web · video · audio']])}
+  body: `${pageHero('My writing + media', 'I build stories people can read, hear and use.', 'Some pieces carry my name. Some carry a leader’s. Others become interviews, coverage, podcasts or live conversations. I label the difference because authorship—and trust—matter.', [['Authored', 'My byline'], ['Ghostwritten', 'Executive voice'], ['Earned', 'PR outcome'], ['Format', 'Print · web · video · audio']])}
+
+  <section class="section-tight corpus-section"><div class="site-shell">
+    <div class="corpus-intro"><div><p class="eyebrow">A public body of work</p><h2>I count what anyone can verify.</h2></div><p>Forbes and Expansión do not publish article-level pageviews, so I do not manufacture an “average reach.” I use public archive counts here and keep performance metrics clearly labeled as portfolio records.</p></div>
+    <div class="corpus-grid" data-reveal>
+      <article><strong>7</strong><span>selected pieces with my Belvo byline</span><i style="--size:35%"></i></article>
+      <article><strong>5</strong><span>Fast Company columns written for Federica Gregorini</span><i style="--size:25%"></i></article>
+      <article><strong>14</strong><span>items visible in 100 Ladrillos’ public press archive</span><i style="--size:70%"></i></article>
+      <article><strong>20</strong><span>selected videos and live appearances collected here</span><i style="--size:100%"></i></article>
+    </div>
+  </div></section>
 
   <section class="section section-light"><div class="site-shell">
     <div class="writing-modes" data-reveal>
-      <article><span>01</span><h3>Authored</h3><p>Signed work: product launches, customer stories and reports written for a specialist B2B audience.</p></article>
-      <article><span>02</span><h3>Written for leaders</h3><p>Ghostwriting and editorial development in another person’s voice. The published byline remains theirs.</p></article>
-      <article><span>03</span><h3>Earned</h3><p>Story development, media relations and spokesperson preparation. Coverage is an outcome, not an authorship claim.</p></article>
+      <article><span>01</span><h3>I sign it.</h3><p>I write product launches, customer stories and reports for specialist B2B audiences.</p></article>
+      <article><span>02</span><h3>I write in their voice.</h3><p>I ghostwrite and edit for leaders; the published byline remains theirs.</p></article>
+      <article><span>03</span><h3>I help it get earned.</h3><p>I develop the story, prepare the spokesperson and work with media; the coverage remains the publisher’s.</p></article>
     </div>
   </div></section>
 
   <section class="section"><div class="site-shell">
-    <div class="section-heading section-heading-row"><div><p class="eyebrow">Selected authored work</p><h2>Complex products.<br>Plain language.</h2></div><p>Open finance, employment data, payments and trust—written without flattening the technical detail.</p></div>
+    <div class="section-heading section-heading-row"><div><p class="eyebrow">Work that carries my name</p><h2>I make complex products readable.</h2></div><p>I write about open finance, employment data, payments and trust without flattening the technical detail—or losing the human reason to care.</p></div>
     <div class="article-link-grid">${writingItems.map(([date, title, role, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer"><small>${date} · ${role}</small><strong>${title}</strong><span>Read ↗</span></a>`).join('')}</div>
-    <p class="small muted">Byline status is verified through ${external('https://belvo.com/es/author/ximena-aguirre/', 'the Belvo author archive')}.</p>
+    <p class="small muted">I verify my signed work through ${external('https://belvo.com/es/author/ximena-aguirre/', 'my Belvo author archive')}.</p>
   </div></section>
 
-  <section class="section section-dark"><div class="site-shell">
-    <div class="section-heading section-heading-row"><div><p class="eyebrow">Written for leaders</p><h2>Thought leadership in someone else’s voice.</h2></div><p>Good ghostwriting should sound like the expert—not the communications person behind the draft.</p></div>
-    <div class="byline-grid">
-      <div class="byline-visual">${evidenceImage({src:'/assets/media/expok-toks-bylined-column.webp', width:'1125', height:'1242', alt:'Newspaper page featuring an executive guest column on corporate responsibility', label:'Executive voice', caption:'Ghostwriting and editorial development for subject-matter leaders.'})}</div>
-      <div class="byline-links">
-        <a href="https://www.eleconomista.es/economiahoy/opinion/noticias/10572655/05/20/Que-podemos-aprender-de-las-Pymes.html" target="_blank" rel="noopener noreferrer"><small>Executive byline · ghostwriting</small><strong>¿Qué podemos aprender de las PyMEs?</strong><span>El Economista ↗</span></a>
-        <a href="https://publimark.cl/opinion/dubra-valenzuela-cuatro-tips-para-startups-y-pymes.html" target="_blank" rel="noopener noreferrer"><small>Executive byline · ghostwriting</small><strong>Cuatro tips para startups y pymes</strong><span>Publimark ↗</span></a>
-        <a href="https://pymempresario.com/liderazgo-innovador-estrategia-de-supervivencia/" target="_blank" rel="noopener noreferrer"><small>Spokesperson narrative · editorial placement</small><strong>Liderazgo innovador, estrategia de supervivencia</strong><span>Pymempresario ↗</span></a>
-      </div>
-    </div>
+  <section class="section section-dark" id="voices"><div class="site-shell">
+    <div class="section-heading section-heading-row"><div><p class="eyebrow">The voices I write and position</p><h2>I disappear into the voice—not the thinking.</h2></div><p>I do the hard editorial work behind the byline: find the argument, test the claim, keep the expert’s cadence and make the point worth publishing.</p></div>
+    <div class="voice-library" data-reveal>${voiceGroups.map(voiceCard).join('')}</div>
   </div></section>
 
   <section class="section"><div class="site-shell">
-    <div class="section-heading section-heading-row"><div><p class="eyebrow">Coverage + clippings</p><h2>The story after it leaves the brief.</h2></div><p>Print and broadcast evidence from external communications, PR and executive-visibility work.</p></div>
+    <div class="section-heading section-heading-row"><div><p class="eyebrow">Coverage + clippings</p><h2>I follow the story after it leaves my brief.</h2></div><p>These print and broadcast records show where my external communications, PR and executive-visibility work travelled.</p></div>
     <div class="clipping-grid" data-reveal>
       ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Newspaper coverage of Belvo and Clip partnership', label:'Belvo · PR outcome', caption:'Open-finance partnership coverage.', className:'clipping-landscape'})}
       ${evidenceImage({src:'/assets/media/wework-hybrid-feature.webp', width:'762', height:'954', alt:'Magazine feature about hybrid work featuring WeWork Mexico CEO Álvaro Villar', label:'WeWork · media relations', caption:'Executive positioning around hybrid work.'})}
@@ -447,12 +606,12 @@ const writing = layout({
   </div></section>
 
   <section class="section section-blue"><div class="site-shell">
-    <div class="section-heading section-heading-row"><div><p class="eyebrow">Video + live media</p><h2>Preparing the voice—and the moment.</h2></div><p>Interviews, live conversations, event content and executive visibility across fintech, SaaS and workplace.</p></div>
+    <div class="section-heading section-heading-row"><div><p class="eyebrow">20 selected videos + live appearances</p><h2>I prepare the voice—and the moment.</h2></div><p>I have worked across interviews, live conversations, event content and executive visibility in fintech, SaaS, proptech, workplace and creative industries.</p></div>
     <div class="video-grid">${videoItems.map(videoCard).join('')}</div>
-    <div class="audio-feature"><div><p class="eyebrow">Podcast</p><h3>View from the Top: leadership and the future of work</h3><p>Editorial and executive-visibility work around a leadership conversation with WeWork COO Liliana Méndez.</p></div><iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/17agLGCAI2yClM7tDUf90P?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify podcast episode"></iframe></div>
+    <div class="audio-feature"><div><p class="eyebrow">Podcast</p><h3>View from the Top: leadership and the future of work</h3><p>I supported the editorial framing and executive visibility around this conversation with WeWork COO Liliana Méndez.</p></div><iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/17agLGCAI2yClM7tDUf90P?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify podcast episode"></iframe></div>
   </div></section>
 
-  <section class="section-tight"><div class="site-shell"><p class="small muted">Role labels describe Ximena’s contribution to the communications work. Independent editorial decisions, presenter performance and third-party coverage remain attributable to their publishers and speakers.</p></div></section>`
+  <section class="section-tight"><div class="site-shell"><p class="small muted">I label my contribution to every piece. I do not claim independent editorial decisions, presenter performance or third-party coverage as my authorship.</p></div></section>`
 });
 
 const about = layout({
@@ -464,7 +623,7 @@ const about = layout({
   <section class="section"><div class="site-shell about-story"><div><p class="eyebrow">The short version</p><blockquote class="quote">What a company says has to work on the inside, hold up on the outside and survive contact with the market.</blockquote></div><div class="measure"><p class="lede">I did not become a 360° communications leader by collecting channels.</p><p>I learned each side of the job where it mattered. Public affairs and CSR taught me to look for evidence. Zendesk taught me how to localize a global story. WeWork put me inside the organization, building clarity for leaders and employees. At 100 Ladrillos and Belvo, I brought PR, launches, events, Sales alignment and commercial measurement into the same frame.</p><p>I am senior enough to set the direction and hands-on enough to write the message, prepare the spokesperson, brief the agency, run the room and question the report.</p></div></div></section>
   <section class="section section-light"><div class="site-shell"><p class="eyebrow">How I work</p><div class="note-grid note-grid-three"><article class="note"><strong>Start with the reality.</strong><p>Understand the product, the people and the tension before choosing a channel.</p></article><article class="note"><strong>Make the story usable.</strong><p>A narrative must help leaders decide, teams act and audiences understand.</p></article><article class="note"><strong>Measure the movement.</strong><p>Coverage, participation and pipeline only matter when the denominator is clear.</p></article></div></div></section>
   <section class="section"><div class="site-shell split"><div class="sticky-label"><p class="eyebrow">Trajectory</p><h2>Built across contexts.</h2></div><div class="timeline">
-    <div class="timeline-item"><span class="timeline-date">2024—present</span><div><h3>Belvo</h3><p>Marketing & Communications Manager, Mexico</p></div><p>Integrated external communications, GTM launches, customer stories, executive visibility, field marketing and measurement in regulated B2B fintech.</p></div>
+    <div class="timeline-item"><span class="timeline-date">2024—2026</span><div><h3>Belvo</h3><p>Marketing & Communications Manager, Mexico</p></div><p>I integrated external communications, GTM launches, customer stories, executive visibility, field marketing and measurement in regulated B2B fintech.</p></div>
     <div class="timeline-item"><span class="timeline-date">2023—2024</span><div><h3>100 Ladrillos</h3><p>PR & Events Manager</p></div><p>PR, investor communications, executive positioning, events, agency leadership and issue readiness.</p></div>
     <div class="timeline-item"><span class="timeline-date">2022—2023</span><div><h3>WeWork</h3><p>Internal Communications & Public Affairs Senior Lead</p></div><p>Regional internal communications and change infrastructure for 2,000+ colleagues.</p></div>
     <div class="timeline-item"><span class="timeline-date">2020—2022</span><div><h3>Zendesk</h3><p>PR & Communications Associate → Regional PR Lead</p></div><p>Regional PR, research launches, localization and spokesperson programs across Latin America and the Caribbean.</p></div>
@@ -480,7 +639,7 @@ const resume = layout({
   <section class="section-tight no-print"><div class="site-shell"><div class="hero-actions"><button class="button button-solid" type="button" data-print>Print / save as PDF</button><a class="button" href="${linkedin}" target="_blank" rel="noopener noreferrer">Request a copy on LinkedIn</a></div></div></section>
   <section class="section"><div class="site-shell split"><div><p class="eyebrow">Profile</p><h2>One connected communications function.</h2></div><div><p class="lede">Ten years across the full communications journey: aligning employees and leaders, shaping external narratives, earning media attention, preparing spokespeople, building field moments and connecting them to commercial follow-up.</p><p class="kicker-line"><strong>Core:</strong> Internal communications · Corporate and external communications · PR and media relations · Field marketing · Executive visibility · Product/GTM launches · Reputation · Measurement</p></div></div></section>
   <section class="section section-light"><div class="site-shell"><p class="eyebrow">Experience</p><div class="timeline">
-    <div class="timeline-item"><span class="timeline-date">Mar 2024—present</span><div><h3>Belvo</h3><p>Marketing & Communications Manager, Mexico</p></div><div><p>Own Mexico communications across PR, product/GTM launches, customer stories, executive visibility and field marketing; partner with Product, Sales, Customer Success, Partnerships, Data, Finance, leadership, agencies and regional teams.</p><p><strong>Selected proof:</strong> 12+ launches; 19→42 quarterly media mentions (+121%); 1,729 MQLs in 2025 (+129.6% YoY); US$722.9K event-sourced ACV in 2024 (+362% YoY).</p></div></div>
+    <div class="timeline-item"><span class="timeline-date">Mar 2024—2026</span><div><h3>Belvo</h3><p>Marketing & Communications Manager, Mexico</p></div><div><p>I owned Mexico communications across PR, product/GTM launches, customer stories, executive visibility and field marketing; I partnered with Product, Sales, Customer Success, Partnerships, Data, Finance, leadership, agencies and regional teams.</p><p><strong>Selected proof:</strong> 12+ launches; 19→42 quarterly media mentions (+121%); 1,729 MQLs in 2025 (+129.6% YoY); US$722.9K event-sourced ACV in 2024 (+362% YoY).</p></div></div>
     <div class="timeline-item"><span class="timeline-date">Feb 2023—Mar 2024</span><div><h3>100 Ladrillos</h3><p>PR & Events Manager</p></div><div><p>Led PR, events, investor communications, executive positioning, agency work and issue-response protocols for a proptech investment platform.</p><p><strong>Selected proof:</strong> 8×+ indexed visibility in the documented portfolio period.</p></div></div>
     <div class="timeline-item"><span class="timeline-date">Aug 2022—Feb 2023</span><div><h3>WeWork</h3><p>Internal Communications & Public Affairs Senior Lead</p></div><div><p>Built a regional channel and editorial operating rhythm for 2,000+ colleagues; supported leaders and change moments with clear, coordinated communications.</p></div></div>
     <div class="timeline-item"><span class="timeline-date">Apr 2020—Aug 2022</span><div><h3>Zendesk</h3><p>PR & Communications Associate → Regional PR Lead</p></div><div><p>Led regional PR localization, agencies, spokespeople and research launches across Mexico, Chile, Argentina, Peru, Colombia and the Caribbean.</p><p><strong>Selected proof:</strong> +78% regional media exposure.</p></div></div>
@@ -495,7 +654,7 @@ const recruiter = layout({
   title: '90-Second Recruiter View — Ximena Aguirre',
   description: 'A concise recruiter view of Ximena Aguirre’s 360° communications experience, results, flagship work, tools, languages and availability.',
   path: '/recruiter/',
-  body: `${pageHero('90-second recruiter view', 'A 360° communications leader—not a collection of channels.', 'Ximena works across internal communications, external communications, PR and field marketing. She sets the narrative, aligns the people around it and stays close enough to the work to execute and measure it.', [['Experience', '10 years'], ['Markets', 'Europe + Latin America'], ['Languages', 'Spanish · English'], ['Work status', 'Authorized in Spain']])}
+  body: `${pageHero('My 90-second recruiter view', 'I am a 360° communications leader—not a collection of channels.', 'I work across internal communications, external communications, PR and field marketing. I set the narrative, align the people around it and stay close enough to the work to execute and measure it.', [['Experience', '10 years'], ['Markets', 'Europe + Latin America'], ['Languages', 'Spanish · English'], ['Work status', 'Authorized in Spain']])}
   <section class="section-tight"><div class="site-shell"><p class="eyebrow">Results in one line</p><div class="recruiter-results"><div><strong>19 → 42</strong><span>quarterly media mentions</span><small>Belvo Mexico · Q1 2024 to Q4 2025</small></div><div><strong>1,729</strong><span>MQLs in 2025</span><small>Belvo Mexico · +129.6% YoY</small></div><div><strong>US$722.9K</strong><span>event-sourced ACV</span><small>Belvo · 2024 · +362% YoY</small></div><div><strong>+78%</strong><span>regional media exposure</span><small>Zendesk · six-month regional period</small></div><div><strong>2,000+</strong><span>colleagues served</span><small>WeWork · internal communications</small></div></div></div></section>
   <section class="section"><div class="site-shell split"><div class="sticky-label"><p class="eyebrow">Best evidence</p><h2>Three cases to open first.</h2></div><div class="case-list"><a class="case-row" href="/case-studies/#belvo"><span class="case-index">01</span><div><h3>Belvo</h3><p>Integrated Mexico narrative, launches, customer proof and field pipeline.</p></div><p>Best for: B2B fintech · GTM · Comms leadership</p><span class="case-arrow">↗</span></a><a class="case-row" href="/case-studies/#zendesk"><span class="case-index">02</span><div><h3>Zendesk</h3><p>A multi-market PR localization engine.</p></div><p>Best for: regional roles · SaaS · external comms</p><span class="case-arrow">↗</span></a><a class="case-row" href="/case-studies/#field"><span class="case-index">03</span><div><h3>Field system</h3><p>Event thesis through opportunity measurement.</p></div><p>Best for: field marketing · sales alignment · pipeline</p><span class="case-arrow">↗</span></a></div></div></section>
   <section class="section section-dark"><div class="site-shell split split-even"><div><p class="eyebrow">Role fit</p><h2>Where the profile is strongest.</h2></div><div><p class="lede">Senior / Lead / Manager roles that need one person to connect corporate and internal communications, regional PR, executive visibility, field marketing and launches.</p><p><strong>Particularly credible in:</strong> complex B2B products, multi-market work, cross-functional leadership, reputation, events tied to commercial outcomes and responsible AI-assisted operations.</p><p><strong>Not positioned as:</strong> a pure growth marketer, social-first creator, performance-media specialist or software engineer.</p></div></div></section>
@@ -508,14 +667,14 @@ const proof = layout({
   path: '/proof/',
   body: `${pageHero('Evidence notes', 'Specific, sourced, honest about limits.', 'This page explains what is publicly verifiable, what comes from documented performance records and what has been reconstructed to protect confidential information.', [['Public evidence', 'Linked primary pages'], ['Metrics', 'Portfolio records'], ['Frameworks', 'Clearly reconstructed'], ['Policy', 'No private source data']])}
   <section class="section"><div class="site-shell split"><div><p class="eyebrow">Metric register</p><h2>What each number means.</h2></div><div>
-    <details open><summary>10 years</summary><div>Calculated from Ximena’s career start in marketing leadership in January 2016 through 2026. Rounded down to a whole year.</div></details>
+    <details open><summary>10 years</summary><div>I calculate this from my career start in marketing leadership in January 2016 through 2026, rounded down to a whole year.</div></details>
     <details><summary>Europe + Latin America</summary><div>Direct professional scope includes Mexico, Chile, Colombia, Argentina, Peru, the Caribbean and Costa Rica; current base and cross-regional work connect the profile to Spain and broader European teams.</div></details>
     <details><summary>+121% media mentions</summary><div>Belvo portfolio record: 19 quarterly mentions in Q1 2024 versus 42 in Q4 2025. Arithmetic: (42−19)÷19 = 121.05%, rounded to 121%.</div></details>
     <details><summary>+129.6% YoY MQLs</summary><div>Belvo portfolio record for 2025 versus 2024; 1,729 MQLs recorded in 2025. The site does not publish underlying CRM exports.</div></details>
     <details><summary>+362% event-sourced ACV</summary><div>Belvo portfolio record for 2024 versus 2023; US$722.9K event-sourced ACV recorded in 2024. Account and opportunity data remain private.</div></details>
     <details><summary>+78% regional exposure</summary><div>Zendesk portfolio record for a documented six-month period within the 2020—2022 regional PR remit. Public coverage examples demonstrate the program; the underlying media report remains private.</div></details>
   </div></div></section>
-  <section class="section section-light"><div class="site-shell split split-even"><div><p class="eyebrow">Three evidence classes</p><h2>A label for every claim.</h2></div><div><p><strong>Public record:</strong> bylines, author archives, company announcements and third-party coverage available at a stable URL.</p><p><strong>Performance record:</strong> figures documented in Ximena’s résumé and portfolio, checked for internal consistency but not linked to confidential dashboards.</p><p><strong>Reconstruction:</strong> a clean demonstration of the actual process, using fictional or generalized inputs instead of company material.</p></div></div></section>
+  <section class="section section-light"><div class="site-shell split split-even"><div><p class="eyebrow">My three evidence classes</p><h2>I label every claim.</h2></div><div><p><strong>Public record:</strong> I link bylines, author archives, company announcements and third-party coverage at a stable URL.</p><p><strong>Performance record:</strong> I use figures documented in my résumé and portfolio, checked for internal consistency but not linked to confidential dashboards.</p><p><strong>Reconstruction:</strong> I demonstrate my actual process with fictional or generalized inputs instead of publishing company material.</p></div></div></section>
   <section class="section"><div class="site-shell"><p class="eyebrow">Intentionally withheld</p><div class="note-grid"><div class="note"><strong>Personal data</strong><p>Phone number, home address and former work contact details.</p></div><div class="note"><strong>Company data</strong><p>CRM exports, account lists, budgets, attendee details and internal dashboards.</p></div><div class="note"><strong>Sensitive context</strong><p>Incident specifics, confidential launch material and internal communications artifacts.</p></div></div></div></section>`
 });
 
