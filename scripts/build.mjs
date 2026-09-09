@@ -125,8 +125,9 @@ function evidenceImage({ src, width, height, alt, label, caption, className = ''
 }
 
 function videoCard({ id, title, meta }) {
+  const brand = meta.split(' · ')[0];
   return `<a class="video-card" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer" data-kind="video">
-    <span class="video-poster"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" width="480" height="360" alt="Video thumbnail: ${title}" loading="lazy" decoding="async"><i aria-hidden="true">Play</i></span>
+    <span class="video-poster" aria-hidden="true"><b>${brand}</b><i>Play ↗</i></span>
     <span class="video-copy"><small>${meta}</small><strong>${title}</strong><span>Watch on YouTube ↗</span></span>
   </a>`;
 }
