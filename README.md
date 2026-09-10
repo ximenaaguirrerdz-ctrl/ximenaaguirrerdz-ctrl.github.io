@@ -20,7 +20,7 @@ Open `http://localhost:4173`.
 - `/playbooks/` — open-source marketing systems
 - `/writing/` — verified public work with role labels
 - `/about/` — biography, principles and trajectory
-- `/resume/` — ATS-friendly résumé with print-to-PDF support
+- `/resume/` — ATS-friendly cv with print-to-PDF support
 - `/recruiter/` — 90-second recruiter view
 - `/proof/` — evidence, attribution and confidentiality notes
 - `/contact/` — public contact routes
