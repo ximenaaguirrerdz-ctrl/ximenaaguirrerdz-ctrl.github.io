@@ -21,6 +21,10 @@ for (const file of htmlFiles) {
   const name = relative(root, file);
   if (!/<html lang="en">/.test(html)) errors.push(`${name}: missing language`);
   if (!/<meta name="description"/.test(html)) errors.push(`${name}: missing description`);
+  if (!/<link rel="canonical" href="https:\/\/ximenaaguirrerdz-ctrl\.github\.io/.test(html)) errors.push(`${name}: missing canonical URL`);
+  if (!/<meta property="og:image"/.test(html)) errors.push(`${name}: missing social preview image`);
+  const description = (html.match(/<meta name="description" content="([^"]+)"/) || [])[1] || '';
+  if (description.length > 160) errors.push(`${name}: description is ${description.length} characters`);
   const h1Count = (html.match(/<h1\b/g) || []).length;
   if (h1Count !== 1) errors.push(`${name}: expected one h1, found ${h1Count}`);
   if (!/href="#main"/.test(html) || !/id="main"/.test(html)) errors.push(`${name}: missing skip target`);
@@ -36,6 +40,9 @@ for (const file of htmlFiles) {
   for (const match of html.matchAll(/<iframe\b[^>]*>/g)) {
     if (!/\stitle="[^"]+"/.test(match[0])) errors.push(`${name}: iframe missing title`);
   }
+  for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    try { JSON.parse(match[1]); } catch { errors.push(`${name}: invalid JSON-LD`); }
+  }
 
   const hrefs = [...html.matchAll(/href="(\/[^"#?]*)(?:[#?][^"]*)?"/g)].map((match) => match[1]);
   for (const href of hrefs) {
@@ -48,7 +55,12 @@ for (const file of htmlFiles) {
 for (const path of ['index.html', 'contact/index.html']) {
   const html = await readFile(join(root, path), 'utf8');
   if (!html.includes('tally.so/embed/obPWZP')) errors.push(`${path}: live contact form missing`);
+  if (!html.includes('utm_source=portfolio') || !html.includes(`utm_content=${path === 'index.html' ? 'home' : 'contact'}`)) errors.push(`${path}: contact attribution missing`);
 }
+
+const robots = await readFile(join(root, 'robots.txt'), 'utf8');
+if (!robots.includes('User-agent: OAI-SearchBot\nAllow: /')) errors.push('robots.txt: OAI-SearchBot is not explicitly allowed');
+if (!robots.includes('Sitemap: https://ximenaaguirrerdz-ctrl.github.io/sitemap.xml')) errors.push('robots.txt: sitemap missing');
 
 if (errors.length) {
   console.error(errors.join('\n'));

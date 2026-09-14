@@ -251,12 +251,13 @@ details > div { padding: 0 0 1.4rem 1.5rem; }
 .footer-links { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
 .footer-note { margin: 3rem 0 0; font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 3.4rem); letter-spacing: -.04em; }
 
-/* Narrative-led 360° portfolio */
+/* Narrative-led portfolio */
 .story-hero { padding-top: clamp(3.3rem, 7vw, 6.5rem); background: var(--paper-light); }
 .story-opening { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(340px, .88fr); gap: clamp(2.5rem, 6vw, 6.5rem); align-items: center; }
 .story-intro h1 { max-width: 12ch; font-size: clamp(3.25rem, 7vw, 7.1rem); }
 .story-intro .lede { max-width: 48ch; }
 .hero-role { max-width: 64ch; margin: 1.5rem 0 0; padding-left: 1rem; border-left: 4px solid var(--signal); font-weight: 670; }
+.hero-detail { max-width: 62ch; margin: 1rem 0 0; color: var(--muted); font-size: .9rem; }
 .story-portrait { align-self: start; }
 .story-spine { display: grid; grid-template-columns: minmax(240px, .56fr) minmax(0, 1.44fr); gap: clamp(2rem, 6vw, 6rem); margin-top: clamp(4rem, 8vw, 7rem); padding-top: clamp(2rem, 5vw, 4rem); border-top: 4px solid var(--ink); }
 .story-spine-intro { position: sticky; top: 112px; align-self: start; }
@@ -385,13 +386,15 @@ details > div { padding: 0 0 1.4rem 1.5rem; }
 .tool-band strong { font-size: .78rem; }
 .tool-band-light { background: var(--paper-light); }
 
-.human-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-.human-grid article { min-height: 330px; padding: 1.1rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); display: flex; flex-direction: column; }
-.human-grid article:nth-child(2), .human-grid article:nth-child(5) { background: var(--yellow); }
+.human-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.human-grid article { min-height: 290px; padding: 1.1rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); display: flex; flex-direction: column; }
+.human-grid article:nth-child(2), .human-grid article:nth-child(6) { background: var(--yellow); }
 .human-grid article:nth-child(3) { color: var(--paper); background: var(--blue); }
+.human-grid article:last-child { grid-column: 1 / -1; min-height: 230px; color: var(--paper); background: var(--ink); }
 .human-grid span { font-family: var(--mono); font-size: .64rem; font-weight: 760; letter-spacing: .06em; text-transform: uppercase; }
 .human-grid h3 { margin-top: auto; font-family: var(--serif); font-size: clamp(1.35rem, 2vw, 2rem); font-weight: 400; }
 .human-grid p { margin: .7rem 0 0; font-size: .78rem; }
+.human-grid small { display: block; margin-top: 1rem; font-family: var(--mono); font-size: .6rem; line-height: 1.55; text-transform: uppercase; }
 .metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .metric-card { margin: 0; padding: clamp(1.2rem, 2.5vw, 2rem); background: var(--paper-light); border: 1px solid var(--ink); }
 .metric-topline { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .8rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; }
@@ -601,6 +604,7 @@ details > div { padding: 0 0 1.4rem 1.5rem; }
   .case-number { font-size: 3.8rem; }
   .timeline-item { grid-template-columns: 1fr; gap: .35rem; }
   .note-grid, .note-grid-three, .range-grid, .metric-grid, .arc-grid, .case-brief, .compact-list, .number-notes, .writing-modes, .article-link-grid, .byline-links, .video-feature-grid, .video-grid, .recruiter-results, .practice-grid, .workstream-grid, .corpus-grid, .voice-library, .crm-flow, .signal-board, .human-grid, .product-loop, .ai-flow, .pmm-proof, .ai-case-flow, .problem-map, .result-ledger, .insight-ledger, .team-context { grid-template-columns: 1fr; }
+  .human-grid article:last-child { grid-column: auto; }
   .career-timeline li { grid-template-columns: 1fr; gap: .35rem; }
   .venn-figure { box-shadow: 8px 8px 0 var(--ink); }
   .chapter-list li { grid-template-columns: 1fr; }

@@ -1,26 +1,30 @@
 # Job-language and keyword matrix
 
-| Recruiter language | Portfolio evidence | Where it appears |
+This matrix consolidates the repeated language in the roles Ximena has been targeting. A keyword appears publicly only when a case, result or working example supports it.
+
+| Search territory | Natural role language | Evidence used on the site |
 |---|---|---|
-| Integrated campaigns | Belvo narrative, launch, field and CRM system | Home, Belvo case, résumé |
-| Strategic communications lever | Narrative connected to trust, adoption and pipeline | Home, recruiter view |
-| Translate complex B2B topics | Open finance, CX research, investment models | Belvo, Zendesk, 100 Ladrillos |
-| Cross-functional leadership | Product, Sales, CS, Partnerships, Data, Finance, leadership and agencies | Belvo case, résumé |
-| Full-lifecycle field marketing | Event thesis through sub-24-hour follow-up and attribution | Field case and repository |
-| Sourced / influenced pipeline | US$722.9K event-sourced ACV; CRM discipline | Proof block, field case |
-| Multi-market localization | Shared message spine with local proof and angles | Zendesk case, launch kit |
-| Executive visibility | Spokesperson briefs, founder narrative and media moments | Belvo, 100 Ladrillos, PR system |
-| End-to-end campaign ownership | Hypothesis, plan, execution, learning loop | Playbooks and case structure |
-| AI with human judgment | Source hygiene, drafting, review gates and limitations | AI case and repository |
-| Internal communications / employee experience | Channel architecture, leadership rhythm and feedback | WeWork case |
-| Measurement and reporting | Media, MQL, event ACV and exposure definitions | Home, proof notes, résumé |
+| Corporate, external and PR | Corporate Communications; External Communications; PR; Media Relations; Reputation Management; Crisis and Issues Management; Thought Leadership; Executive Communications; Spokesperson Management | Belvo’s Mexico narrative and media programme; ThinkY’s 41 placements / 28 Tier 1; Zendesk’s +78% exposure; founder and executive voice archive; issue-readiness work at 100 Ladrillos |
+| Internal and leadership | Internal Communications; Employee Communications; Employee Engagement; Leadership Communications; Change Communications; Culture; Organizational Change | WeWork channel architecture, leadership rhythm and communications for 2,000+ employees; public-affairs and fast-response experience |
+| Product and GTM | Product Marketing; Positioning and Messaging; GTM Strategy; Product and Partnership Launches; Market and Customer Insights; Customer Stories; Sales Enablement; Localization; Market Expansion | 12+ Belvo launches; 17 customer stories; open-finance positioning; six-market Zendesk localization; Mexico, Spain and Colombia coordination |
+| Field and commercial | Field Marketing; Regional Marketing; Event Strategy; Integrated Campaigns; Partner Marketing; Sales Alignment; Demand and Lead Generation; CRM; Lifecycle; Attribution; Sales Handoff; Marketing Measurement | 1,729 MQLs (+129.6% YoY); +35.3% Contact Us; +38% deals created; US$722.9K event-sourced ACV in 2024; sub-24-hour follow-up system |
 
-## Natural priority keywords
+## Transferable skills
 
-**Tier 1:** Senior Marketing & Communications Manager; Corporate Communications; External Communications; Public Relations; Media Relations; Field Marketing; Regional Marketing; B2B SaaS; integrated campaigns; stakeholder management.
+The skills reference supplied by Ximena is translated into credible, non-technical language:
 
-**Tier 2:** product launches; GTM; sales alignment; events and partnerships; customer stories; executive communications; pipeline attribution; multi-market localization.
+- Applied AI and data fluency—not AI engineering or data science.
+- Technology fluency across CRM, analytics, SEO, content and collaboration systems.
+- Creative, analytical and systems thinking.
+- Adaptability and resilience in launches, organizational change, crisis and ambiguity.
+- Curiosity, active listening and fast category learning.
+- Cross-functional leadership, stakeholder influence, people leadership and coaching.
+- Audience empathy, customer orientation and service mindset.
 
-**Tier 3:** crisis communications; internal communications; lifecycle / CRM; AI-assisted marketing operations; creator and influencer programs.
+## High-intent context terms
 
-The copy uses the terms only where a case provides evidence. It avoids unsupported claims of PLG ownership, performance-marketing depth, Marketo expertise, automation-platform mastery or AI engineering.
+B2B technology · B2B SaaS · fintech · regulated and high-trust categories · multi-market · regional · Europe · Latin America · Mexico · Spain · Colombia · Spanish · English · matrixed teams · security and compliance communications · data-driven · responsible AI.
+
+## Claim policy
+
+Use the pattern **keyword → plain-language claim → visible proof**. Avoid unsupported claims of Product Management, roadmap or pricing ownership, performance-marketing depth, Marketo expertise, AI engineering or sole ownership of team-level commercial outcomes.
