@@ -57,9 +57,11 @@ function personSchema() {
     '@type': 'Person',
     name: 'Ximena Aguirre',
     url: origin,
-    jobTitle: 'Senior Communications, Product Marketing, PR & Field Marketing Leader',
+    jobTitle: 'Senior Marketing & Communications Leader',
     sameAs: [linkedin, github],
-    knowsAbout: ['B2B marketing', 'Corporate communications', 'Public relations', 'Product marketing', 'Field marketing', 'Demand generation', 'CRM and lifecycle marketing', 'Go-to-market strategy', 'Executive communications', 'AI-enabled content operations', 'Multi-market communications']
+    homeLocation: { '@type': 'Place', name: 'Madrid, Spain' },
+    knowsLanguage: ['Spanish', 'English'],
+    knowsAbout: ['B2B technology marketing', 'Fintech marketing', 'Corporate communications', 'Internal communications', 'Change communications', 'Public relations', 'Media relations', 'Reputation strategy', 'Product marketing', 'Product positioning', 'Go-to-market strategy', 'Field marketing', 'Event strategy', 'Demand generation', 'CRM and lifecycle marketing', 'Sales enablement', 'Customer marketing', 'Marketing analytics', 'Attribution', 'Audience segmentation', 'SEO and content strategy', 'Thought leadership', 'Executive communications', 'Stakeholder management', 'AI-enabled content operations', 'Multi-market communications', 'Europe and Latin America']
   });
 }
 
@@ -141,19 +143,15 @@ function voiceCard({ company, people, contribution, proof, links }) {
   </article>`;
 }
 
-function leadForm() {
-  return `<form class="lead-form" data-contact-form>
-    <div class="form-grid">
-      <label><span>Your name</span><input type="text" name="name" autocomplete="name" required></label>
-      <label><span>Work email</span><input type="email" name="email" autocomplete="email" required></label>
-      <label><span>Company</span><input type="text" name="company" autocomplete="organization"></label>
-      <label><span>What should we talk about?</span><select name="reason" required><option value="" selected disabled>Choose one</option><option>Senior role</option><option>Consulting project</option><option>Speaking or media</option><option>Something else</option></select></label>
-      <label class="form-full"><span>Tell me a little about it</span><textarea name="message" rows="5" required placeholder="What are you building, changing or trying to make clearer?"></textarea></label>
-      <label class="form-honeypot" aria-hidden="true"><span>Leave this empty</span><input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-    </div>
-    <div class="form-submit"><button class="button button-solid" type="submit">Open email draft</button><p>This prepares an email in your own mail app. Nothing is stored on this site.</p></div>
-    <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-  </form>`;
+function leadForm(source = 'contact') {
+  const formUrl = `https://tally.so/embed/obPWZP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&utm_source=portfolio&utm_medium=website&utm_campaign=portfolio_contact&utm_content=${encodeURIComponent(source)}&page=${encodeURIComponent(source)}`;
+  return `<div class="tally-form" data-reveal>
+    <div class="tally-form-head"><span>Direct contact</span><strong>Usually under two minutes.</strong></div>
+    <iframe data-tally-src="${formUrl}" loading="lazy" width="100%" height="620" frameborder="0" marginheight="0" marginwidth="0" title="Contact Ximena Aguirre"></iframe>
+    <p class="form-fallback">If the form does not load, <a href="https://tally.so/r/obPWZP" target="_blank" rel="noopener noreferrer">open it in a new tab ↗</a>.</p>
+    <p class="form-privacy">Your message goes directly to Ximena through Tally. No newsletter and no automatic sales sequence.</p>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </div>`;
 }
 
 const careerItems = [
@@ -167,9 +165,9 @@ const careerItems = [
   {
     date: '2024 to 2025',
     company: 'Independent / ThinkY',
-    role: 'Marketing & Communications Projects',
-    story: 'I supported creator, influencer and communications projects linked to Netflix, Rexona and the TikTok Awards, as well as B2B content work.',
-    proof: 'Creator mapping, briefs, approvals, activation, amplification and reporting.'
+    role: 'Marketing & Communications Strategist',
+    story: 'I built the communications proposal and co-led a PR system that repositioned a creator-marketing agency around strategic thinking, market data and business relevance—not awards alone.',
+    proof: '41 placements, 28 in Tier 1 media, 76.7M reported reach and MXN 5.5M in modelled PR value.'
   },
   {
     date: 'Feb 2023 to Mar 2024',
@@ -262,45 +260,40 @@ const impactMetrics = [
 ];
 
 const home = layout({
-  title: 'Ximena Aguirre | Communications, Product Marketing, PR & Field',
-  description: 'I connect communications, Product Marketing, PR, field, lifecycle and data across Europe and Latin America.',
+  title: 'Ximena Aguirre | Senior Marketing & Communications Leader',
+  description: 'Senior Marketing and Communications leader in Madrid connecting PR, Product Marketing, Field, CRM, data and AI across Europe and Latin America.',
   path: '/',
   schema: true,
   body: `
-  <section class="section hero hero-v2">
-    <div class="site-shell hero-story">
-      <div class="hero-copy">
-        <p class="eyebrow">Hi, I’m Ximena</p>
-        <h1>I like finding out what makes people care.</h1>
-        <p class="lede">I have always been the person who asks one more question. What is someone worried about? What are they trying to change? What would make a product, a decision or a story feel relevant to their day?</p>
-        <p class="hero-plain">That curiosity became my work. I connect Communications, Product Marketing, PR, Field, CRM and content so complex ideas can make sense inside a company, earn trust outside it and help the business grow.</p>
-        <p class="hero-note">I have spent ten years learning new industries and markets quickly. I start with people, product and context. The channel comes after.</p>
+  <section class="section story-hero" id="my-story" aria-labelledby="story-title">
+    <div class="site-shell story-opening">
+      <div class="story-intro">
+        <p class="eyebrow">Ximena Aguirre · Madrid · Europe + Latin America</p>
+        <h1 id="story-title">I did not plan a 360° profile. I kept following the work.</h1>
+        <p class="lede">Complex product. Different markets. Too many people in the room. That is usually where I am useful.</p>
+        <p class="hero-role">I am a senior Marketing & Communications leader with ten years across B2B technology, fintech, corporate and internal communications, PR, Product Marketing, Field Marketing, CRM and go-to-market strategy.</p>
         <div class="hero-actions">
-          <a class="button button-solid" href="#my-story">Read my story</a>
-          <a class="button" href="/recruiter/">See the 90-sec view</a>
+          <a class="button button-solid" href="/work/">See the work</a>
+          <a class="button" href="/recruiter/">Meet me in 90 seconds</a>
         </div>
-        <dl class="hero-facts"><div><dt>Experience</dt><dd>10 years</dd></div><div><dt>Range</dt><dd>Comms + Product + Field</dd></div><div><dt>Markets</dt><dd>Europe + Latin America</dd></div></dl>
+        <dl class="hero-facts"><div><dt>Experience</dt><dd>10 years</dd></div><div><dt>Work</dt><dd>Strategy + execution</dd></div><div><dt>Markets</dt><dd>Europe + Latin America</dd></div></dl>
       </div>
-      <figure class="hero-portrait">
-        <div class="portrait-frame"><img src="/assets/media/ximena-aguirre-portrait.webp" width="800" height="800" alt="Portrait of Ximena Aguirre" loading="eager" decoding="async" fetchpriority="high"></div>
-        <figcaption><span>Madrid, Spain</span><strong>I set the direction and stay close to the work.</strong></figcaption>
+      <figure class="hero-portrait story-portrait">
+        <div class="portrait-frame"><img src="/assets/media/ximena-aguirre-portrait.webp" width="800" height="800" alt="Ximena Aguirre, senior Marketing and Communications leader based in Madrid" loading="eager" decoding="async" fetchpriority="high"></div>
+        <figcaption><span>People · product · evidence</span><strong>I set the direction and stay close enough to see what moved.</strong></figcaption>
       </figure>
     </div>
-  </section>
-
-  <section class="section section-light" id="my-story" aria-labelledby="story-title">
-    <div class="site-shell origin-story">
-      <div class="origin-copy">
-        <p class="eyebrow">How I got here</p>
-        <h2 id="story-title">I did not plan a 360° profile. I kept following the work.</h2>
-        <p class="lede">Every role added a missing piece. I learned to earn attention, build trust, make products understandable and give interest somewhere useful to go.</p>
+    <div class="site-shell story-spine">
+      <div class="story-spine-intro">
+        <p class="eyebrow">Ten years in five chapters</p>
+        <p class="story-promise">Every role added a missing piece: attention, trust, relevance, systems and commercial follow-through.</p>
       </div>
       <ol class="chapter-list" data-reveal>
         <li><span>2016</span><strong>I learned that attention needs a next step.</strong><p>At AIESEC, I led twelve people and helped increase leads by 83%. It was my first lesson in connecting a message to action.</p></li>
-        <li><span>2018 to 2020</span><strong>I learned to look for the person behind the claim.</strong><p>COPRED, 3AM and Expok took me through public issues, fashion and social impact. Different worlds, same responsibility to understand the context before writing.</p></li>
-        <li><span>2020 to 2023</span><strong>I learned how a story travels.</strong><p>Zendesk taught me to localize across six markets and the Caribbean. WeWork taught me that employees should never discover the company story last.</p></li>
-        <li><span>2023 to 2026</span><strong>I moved closer to the product and the business.</strong><p>At 100 Ladrillos and Belvo, I connected positioning, launches, founder voice, events, CRM, Sales follow-up and pipeline.</p></li>
-        <li><span>Now</span><strong>I keep the range, but I never lose the thread.</strong><p>I can move from a product brief to a byline, from a crisis room to a field event, or from an LLM workflow to a CRM report because I know what each part is there to do.</p></li>
+        <li><span>2018 to 2020</span><strong>I learned to find the person behind the claim.</strong><p>COPRED, 3AM and Expok took me through public issues, fashion and social impact. Different worlds, same responsibility: understand the context before writing.</p></li>
+        <li><span>2020 to 2023</span><strong>I learned how one story travels without becoming generic.</strong><p>Zendesk taught me to localize across six markets and the Caribbean. WeWork taught me that employees should never discover the company story last.</p></li>
+        <li><span>2023 to 2026</span><strong>I moved closer to the product and the business.</strong><p>At 100 Ladrillos, ThinkY and Belvo, I connected positioning, founder voice, launches, PR, events, CRM, Sales follow-up and pipeline.</p></li>
+        <li><span>Now</span><strong>I keep the range, but I never lose the thread.</strong><p>I can move from a product brief to a byline, from a reputation issue to a field event, or from an LLM workflow to a CRM report because I know what each part is there to do.</p></li>
       </ol>
     </div>
   </section>
@@ -308,43 +301,55 @@ const home = layout({
   <section class="section" aria-labelledby="range-title">
     <div class="site-shell venn-layout">
       <div>
-        <p class="eyebrow">My 360° practice</p>
-        <h2 id="range-title">I work where three disciplines meet.</h2>
-        <p class="lede">I can enter through a message, a product or a market moment. I stay long enough to connect all three.</p>
+        <p class="eyebrow">How I solve</p>
+        <h2 id="range-title">I find the story. Then I build the system that makes it travel.</h2>
+        <p class="lede">I can enter through a message, a product or a market moment. I stay long enough to connect the people, channels and commercial next step.</p>
         <div class="range-key">
-          <p><strong>I listen.</strong> I learn what people, customers and teams are actually living.</p>
-          <p><strong>I frame.</strong> I turn product truth and market tension into positioning, messages and proof.</p>
-          <p><strong>I activate.</strong> I use PR, content, leaders, events, creators and CRM with a clear role for each.</p>
-          <p><strong>I learn.</strong> I read response, lead quality, pipeline and feedback, then improve the next move.</p>
+          <p><strong>Find.</strong> Research, customer insight, category tension and the question people are actually trying to solve.</p>
+          <p><strong>Frame.</strong> Product positioning, message architecture, executive point of view and proof.</p>
+          <p><strong>Build.</strong> PR, content, launches, events, creators, lifecycle and Sales enablement, each with a job.</p>
+          <p><strong>Learn.</strong> Reach, intent, lead quality, pipeline and feedback—then the next decision.</p>
         </div>
       </div>
       <figure class="venn-figure" data-reveal>
         <svg class="venn-svg" viewBox="0 0 720 600" role="img" aria-labelledby="venn-title venn-desc">
           <title id="venn-title">My connected marketing practice</title>
-          <desc id="venn-desc">Three overlapping circles represent Communications, Product Marketing, and Field and Lifecycle. Their shared center is a story people can understand and act on.</desc>
+          <desc id="venn-desc">Three overlapping circles represent Communications, Product Marketing, and Field and Lifecycle. Their shared center is a story that creates measurable movement.</desc>
           <circle class="venn-comms" cx="250" cy="230" r="190"></circle>
           <circle class="venn-product" cx="470" cy="230" r="190"></circle>
           <circle class="venn-field" cx="360" cy="405" r="190"></circle>
           <text x="175" y="150" text-anchor="middle"><tspan>COMMUNICATIONS</tspan><tspan x="175" dy="26">PR · INTERNAL · VOICE</tspan></text>
           <text x="545" y="150" text-anchor="middle"><tspan>PRODUCT MARKETING</tspan><tspan x="545" dy="26">POSITIONING · GTM · PROOF</tspan></text>
           <text x="360" y="480" text-anchor="middle"><tspan>FIELD + LIFECYCLE</tspan><tspan x="360" dy="26">EVENTS · CRM · PIPELINE</tspan></text>
-          <text class="venn-center" x="360" y="292" text-anchor="middle"><tspan>ONE USEFUL</tspan><tspan x="360" dy="34">STORY</tspan></text>
+          <text class="venn-center" x="360" y="292" text-anchor="middle"><tspan>STORY THAT</tspan><tspan x="360" dy="34">MOVES</tspan></text>
         </svg>
-        <figcaption>I connect people, product and growth. That is what 360° means in my work.</figcaption>
+        <figcaption>The overlap is the work: one credible story, adapted to the market and connected to action.</figcaption>
       </figure>
+    </div>
+    <div class="site-shell problem-map" data-reveal>
+      <article><span>When the category is complex</span><strong>I make the value legible.</strong><p>Customer insight · positioning · messaging · GTM launches · SEO content</p></article>
+      <article><span>When trust is fragile</span><strong>I make the proof visible.</strong><p>Reputation · PR · media relations · executive communications · customer stories</p></article>
+      <article><span>When markets differ</span><strong>I keep the spine, change the reason to care.</strong><p>Segmentation · localization · regional communications · field marketing</p></article>
+      <article><span>When attention stops too early</span><strong>I design what happens next.</strong><p>CRM · lifecycle · Sales enablement · lead generation · attribution</p></article>
     </div>
   </section>
 
   <section class="section impact-section" aria-labelledby="impact-title">
     <div class="site-shell">
-      <div class="section-heading section-heading-row"><div><p class="eyebrow">Data + lead generation</p><h2 id="impact-title">I care about the story, and what happens because of it.</h2></div><p>I use data to decide where attention should go next, where a journey is leaking and what Sales needs to continue the conversation.</p></div>
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">Evidence, not decoration</p><h2 id="impact-title">I use data to make the next decision.</h2></div><p>A story is only useful if I can see what it changed. I separate attention, intent, pipeline and revenue signals instead of pretending they are one perfect funnel.</p></div>
       <div class="signal-board" data-reveal>
         <figure class="signal-chart"><header><span>Demand</span><strong>+129.6%</strong></header><h3>Marketing-qualified leads</h3><div class="paired-bars" role="img" aria-label="MQL index increased from 100 in 2024 to 230 in 2025"><div><span>2024</span><i><b style="--bar:43.5%"></b></i><em>Index 100</em></div><div><span>2025</span><i><b style="--bar:100%"></b></i><em>1,729 · Index 230</em></div></div><figcaption>I supported Belvo’s integrated Mexico programme across campaigns, content, field and follow-up.</figcaption></figure>
-        <figure class="signal-chart"><header><span>Intent</span><strong>+35.3%</strong></header><h3>Contact Us submissions</h3><div class="paired-bars" role="img" aria-label="Contact Us index increased from 100 in the previous year to 135 in 2025"><div><span>Previous year</span><i><b style="--bar:73.9%"></b></i><em>Index 100</em></div><div><span>2025</span><i><b style="--bar:100%"></b></i><em>330 · Index 135</em></div></div><figcaption>I tracked higher-intent actions separately from broad campaign reach.</figcaption></figure>
+        <figure class="signal-chart"><header><span>Intent</span><strong>+35.3%</strong></header><h3>Contact Us submissions</h3><div class="paired-bars" role="img" aria-label="Contact Us submissions increased from an index of 100 in Q4 2024 to 135 in Q4 2025"><div><span>Q4 2024</span><i><b style="--bar:73.9%"></b></i><em>Index 100</em></div><div><span>Q4 2025</span><i><b style="--bar:100%"></b></i><em>330 · Index 135</em></div></div><figcaption>I tracked higher-intent actions separately from broad campaign reach.</figcaption></figure>
         <figure class="signal-chart"><header><span>Pipeline</span><strong>+38%</strong></header><h3>Deals created</h3><div class="paired-bars" role="img" aria-label="Q4 deal index increased from 100 in 2024 to 138 in 2025"><div><span>Q4 2024</span><i><b style="--bar:72.5%"></b></i><em>Index 100</em></div><div><span>Q4 2025</span><i><b style="--bar:100%"></b></i><em>69 · Index 138</em></div></div><figcaption>I worked with Sales on context, ownership and follow-up, then read movement in CRM.</figcaption></figure>
-        <figure class="signal-chart"><header><span>Revenue signal</span><strong>+362%</strong></header><h3>Event-sourced ACV</h3><div class="paired-bars" role="img" aria-label="Event-sourced ACV index increased from 100 in 2023 to 462 in 2024"><div><span>2023</span><i><b style="--bar:21.6%"></b></i><em>Index 100</em></div><div><span>2024</span><i><b style="--bar:100%"></b></i><em>US$722.9K · Index 462</em></div></div><figcaption>I connected event selection, account intent, Sales handoff and opportunity attribution.</figcaption></figure>
+        <figure class="signal-chart"><header><span>Revenue signal</span><strong>+113%</strong></header><h3>Event-created ACV</h3><div class="paired-bars" role="img" aria-label="Event-created annual contract value increased from 102,968 US dollars in Q4 2024 to 219,350 US dollars in Q4 2025"><div><span>Q4 2024</span><i><b style="--bar:46.9%"></b></i><em>US$103.0K</em></div><div><span>Q4 2025</span><i><b style="--bar:100%"></b></i><em>US$219.4K</em></div></div><figcaption>I connected event selection, account intent, Sales handoff and opportunity attribution.</figcaption></figure>
       </div>
-      <p class="evidence-line">I compare each signal only with its own baseline. These are separate indicators, not stages of one invented funnel, and I do not attribute every result to communications alone. <a href="/proof/">See every denominator →</a></p>
+      <div class="result-ledger" data-reveal>
+        <article><span>Belvo · Q1 2026 recap</span><strong>20 mentions · 36% Tier 1 · 2 industry reports</strong><p>PR quality and authority were reviewed alongside volume.</p></article>
+        <article><span>Belvo · audience behaviour</span><strong>45.2K LinkedIn impressions</strong><p>Page views rose 19.6%; comments 104.5%; shares 127.8% in the same reported quarter.</p></article>
+        <article><span>ThinkY · programme result</span><strong>41 placements · 28 Tier 1</strong><p>76.7M reported reach across the documented PR programme.</p></article>
+        <article><span>ThinkY · measurement discipline</span><strong>100% positive sentiment</strong><p>MXN 5.5M was a modelled media-equivalency estimate—not sales revenue.</p></article>
+      </div>
+      <p class="evidence-line">I compare each signal only with its own baseline. These are documented programme results with shared-team attribution; private dashboards, budgets, account lists and personal data stay private. <a href="/proof/">See every denominator and evidence note →</a></p>
     </div>
   </section>
 
@@ -380,7 +385,7 @@ const home = layout({
         <article><div><span>Zendesk</span><h3>Alex Barrera · Raúl Rodríguez · Dubra Valenzuela</h3></div><p>I developed regional storylines, executive copy and media moments for different markets and voices.</p><strong>30 Promesas + Forbes + a 4-part editorial series</strong><a href="/writing/#voices">See the evidence ↗</a></article>
         <article><div><span>100 Ladrillos</span><h3>Iván Carmona · Hugo Blum</h3></div><p>I helped make an unfamiliar investment model clear through founder narratives, media and investor moments.</p><strong>14 items in the public press archive</strong><a href="https://somos.100ladrillos.com/prensa/" target="_blank" rel="noopener noreferrer">Open archive ↗</a></article>
         <article><div><span>WeWork</span><h3>Álvaro Villar · Liliana Méndez</h3></div><p>I prepared leadership stories to work on television, in audio and with employees across the region.</p><strong>TV + podcast + 2,000+ colleagues</strong><a href="/writing/#voices">See the evidence ↗</a></article>
-        <article><div><span>ThinkY</span><h3>Maripi Lissarrague · Delfina Peralta Ramos</h3></div><p>I supported founder positioning around creativity, technology and the work behind award-winning campaigns.</p><strong>Founder interviews + TikTok Ad Awards story</strong><a href="/writing/#voices">See the evidence ↗</a></article>
+        <article><div><span>ThinkY</span><h3>Maripi Lissarrague · Delfina Peralta Ramos</h3></div><p>I built the communications proposal and co-led founder positioning around creativity, technology, market data and the business thinking behind the work.</p><strong>41 placements · 28 Tier 1 · 76.7M reported reach</strong><a href="/case-studies/#thinky">Read the case ↗</a></article>
         <article><div><span>Expok</span><h3>Miguel Ángel Santinelli · Gustavo Pérez</h3></div><p>I translated social-impact expertise into columns, interviews, events and stories with a human consequence.</p><strong>CSR + human rights + institutional visibility</strong><a href="/writing/#voices">See the evidence ↗</a></article>
       </div>
     </div>
@@ -402,25 +407,26 @@ const home = layout({
   <section class="section section-light" aria-labelledby="home-contact-title">
     <div class="site-shell contact-layout">
       <div class="contact-copy"><p class="eyebrow">Let’s talk</p><h2 id="home-contact-title">Tell me what you are trying to make clearer.</h2><p class="lede">If you are building a team, launching a product, entering a market or trying to connect communications with growth, I would love to hear the real version of the problem.</p><p>You can start here or <a href="${linkedin}" target="_blank" rel="noopener noreferrer">find me on LinkedIn</a>.</p></div>
-      ${leadForm()}
+      ${leadForm('home')}
     </div>
   </section>`
 });
 
 const work = layout({
-  title: 'Work | Ximena Aguirre',
-  description: 'My work across communications, Product Marketing, PR, field, lifecycle and data in fintech, SaaS, proptech and ESG.',
+  title: 'Marketing & Communications Work | Ximena Aguirre',
+  description: 'Data-informed work across PR, Product Marketing, internal communications, field, CRM and GTM in fintech, B2B SaaS, proptech, creator marketing and ESG.',
   path: '/work/',
   body: `${pageHero('My work / 360° view', 'I follow the work across the whole business.', 'I move between the product, the company, the press room and the market because that is how the work happens in real life. I find the connection and build around it.', [['Inside', 'Leadership · change · employees'], ['Outside', 'PR · reputation · media'], ['Product', 'Positioning · GTM · proof'], ['Growth', 'Field · CRM · pipeline']])}
   <section class="section"><div class="site-shell">
     <div class="card-grid">
       <article class="card card-wide"><div><div class="card-meta"><span>01 / Belvo</span><span>Fintech · Mexico</span></div><h3>I made open finance useful, credible and visible.</h3><p>I connected Product Marketing, launches, customer proof, PR, field, CRM and measurement.</p></div><a href="/case-studies/#belvo">Read my case →</a></article>
-      <article class="card card-wide"><div><div class="card-meta"><span>02 / 100 Ladrillos</span><span>Proptech · Mexico</span></div><h3>I built trust around a new investment model.</h3><p>I combined PR, founder positioning, investor moments, KOLs and issue readiness.</p></div><a href="/case-studies/#ladrillos">Read my case →</a></article>
-      <article class="card"><div><div class="card-meta"><span>03 / WeWork</span><span>Internal · LatAm</span></div><h3>I built communications infrastructure for 2,000+ people.</h3><p>I created the channel architecture, leadership rhythm and change communications.</p></div><a href="/case-studies/#wework">Read my case →</a></article>
-      <article class="card"><div><div class="card-meta"><span>04 / Zendesk</span><span>SaaS · Regional</span></div><h3>I gave one global thesis many local reasons to matter.</h3><p>I localized regional PR across six markets and the Caribbean.</p></div><a href="/case-studies/#zendesk">Read my case →</a></article>
-      <article class="card"><div><div class="card-meta"><span>05 / Expok</span><span>ESG · Agency</span></div><h3>I turned impact programmes into stories people could see.</h3><p>I led multi-client PR, executive content and a three-person team.</p></div><a href="/case-studies/#expok">Read my case →</a></article>
-      <article class="card card-wide"><div><div class="card-meta"><span>06 / Field system</span><span>Cross-company</span></div><h3>I moved beyond the badge scan.</h3><p>I built a repeatable field workflow around account intent, Sales alignment, CRM and attribution.</p></div><a href="/case-studies/#field">Read my case →</a></article>
-      <article class="card card-wide"><div><div class="card-meta"><span>07 / Content Cosmos</span><span>AI · LLM operations</span></div><h3>I built an AI-enabled content workflow with engineering.</h3><p>I connected approved knowledge, brand voice, LLM drafting and human review for faster multi-market content.</p></div><a href="/case-studies/#ai">Read my case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>02 / ThinkY</span><span>Creator marketing · PR</span></div><h3>I turned campaign wins into a strategic point of view.</h3><p>I built the proposal and co-led a data-informed PR system around expertise, relevance and proof.</p></div><a href="/case-studies/#thinky">Read my case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>03 / 100 Ladrillos</span><span>Proptech · Mexico</span></div><h3>I built trust around a new investment model.</h3><p>I combined PR, founder positioning, investor moments, KOLs and issue readiness.</p></div><a href="/case-studies/#ladrillos">Read my case →</a></article>
+      <article class="card"><div><div class="card-meta"><span>04 / WeWork</span><span>Internal · LatAm</span></div><h3>I built communications infrastructure for 2,000+ people.</h3><p>I created the channel architecture, leadership rhythm and change communications.</p></div><a href="/case-studies/#wework">Read my case →</a></article>
+      <article class="card"><div><div class="card-meta"><span>05 / Zendesk</span><span>SaaS · Regional</span></div><h3>I gave one global thesis many local reasons to matter.</h3><p>I localized regional PR across six markets and the Caribbean.</p></div><a href="/case-studies/#zendesk">Read my case →</a></article>
+      <article class="card"><div><div class="card-meta"><span>06 / Expok</span><span>ESG · Agency</span></div><h3>I turned impact programmes into stories people could see.</h3><p>I led multi-client PR, executive content and a three-person team.</p></div><a href="/case-studies/#expok">Read my case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>07 / Field system</span><span>Cross-company</span></div><h3>I moved beyond the badge scan.</h3><p>I built a repeatable field workflow around account intent, Sales alignment, CRM and attribution.</p></div><a href="/case-studies/#field">Read my case →</a></article>
+      <article class="card card-wide"><div><div class="card-meta"><span>08 / Content Cosmos</span><span>AI · LLM operations</span></div><h3>I built an AI-enabled content workflow with engineering.</h3><p>I connected approved knowledge, brand voice, LLM drafting and human review for faster multi-market content.</p></div><a href="/case-studies/#ai">Read my case →</a></article>
     </div>
   </div></section>
 
@@ -451,7 +457,7 @@ const work = layout({
   <section class="section section-dark" aria-labelledby="crm-title"><div class="site-shell">
     <div class="section-heading section-heading-row"><div><p class="eyebrow">CRM + lifecycle · HubSpot + Salesforce</p><h2 id="crm-title">I give attention somewhere useful to go.</h2></div><p>I plan the invitation, registration, reminders, lead state, context-rich Sales handoff and post-event learning as one journey.</p></div>
     <ol class="crm-flow" data-reveal><li><span>01</span><b>Audience</b><small>I define account fit and intent.</small></li><li><span>02</span><b>Journey</b><small>I build invite, reminders and nurture.</small></li><li><span>03</span><b>Handoff</b><small>I set owner, context and a sub-24h action.</small></li><li><span>04</span><b>Movement</b><small>I track inquiry, opportunity and learning.</small></li></ol>
-    <div class="number-notes number-notes-dark"><div><strong>1,729</strong><span>MQLs in 2025 · +129.6% YoY across my integrated Belvo programme</span></div><div><strong>330</strong><span>Contact Us inquiries in 2025 · +35.3% YoY</span></div><div><strong>69</strong><span>Q4 deals in 2025 · +38% YoY</span></div></div>
+    <div class="number-notes number-notes-dark"><div><strong>1,729</strong><span>MQLs in 2025 · +129.6% YoY across the integrated Belvo programme</span></div><div><strong>330</strong><span>Contact Us submissions in Q4 2025 · +35.3% YoY</span></div><div><strong>69</strong><span>deals created in Q4 2025 · +38% YoY</span></div></div>
   </div></section>
 
   <section class="section" aria-labelledby="moments-title"><div class="site-shell">
@@ -471,31 +477,55 @@ const work = layout({
 });
 
 const caseStudies = layout({
-  title: 'Case Studies | Ximena Aguirre',
-  description: 'Seven case studies across internal communications, external communications, PR, field marketing and GTM, with results shown in context.',
+  title: 'Marketing & Communications Case Studies | Ximena Aguirre',
+  description: 'Eight evidence-led case studies across PR, Product Marketing, internal communications, field marketing, CRM, GTM and AI-enabled content operations.',
   path: '/case-studies/',
-  body: `${pageHero('Case studies / 360° communications', 'Seven assignments. One connected practice.', 'The format is deliberately simple: the mandate, what I saw, what I did and what changed. Strategy and execution sit together.', [['Inside', 'WeWork'], ['Outside', 'Zendesk · Expok'], ['Market', 'Belvo · 100 Ladrillos'], ['Systems', 'Field · AI']])}
+  body: `${pageHero('Case studies / evidence in context', 'Eight assignments. One connected practice.', 'The format is deliberately simple: the mandate, what I saw, what I did, what changed and what I learned. Strategy, execution and measurement stay together.', [['Inside', 'WeWork'], ['Outside', 'Zendesk · ThinkY · Expok'], ['Market', 'Belvo · 100 Ladrillos'], ['Systems', 'Field · AI']])}
   <nav class="case-jump site-shell" aria-label="Jump to a case study">
-    <a href="#belvo">Belvo</a><a href="#ladrillos">100 Ladrillos</a><a href="#wework">WeWork</a><a href="#zendesk">Zendesk</a><a href="#expok">Expok</a><a href="#field">Field</a><a href="#ai">AI</a>
+    <a href="#belvo">Belvo</a><a href="#thinky">ThinkY</a><a href="#ladrillos">100 Ladrillos</a><a href="#wework">WeWork</a><a href="#zendesk">Zendesk</a><a href="#expok">Expok</a><a href="#field">Field</a><a href="#ai">AI</a>
   </nav>
   <div class="site-shell">
     <article class="case-study" id="belvo">
       <aside class="case-side"><div class="case-number">01</div><div class="case-tags"><span class="tag">Product Marketing</span><span class="tag">External comms</span><span class="tag">Field</span><span class="tag">Mexico</span></div></aside>
-      <div class="case-body"><p class="eyebrow">Belvo · 2024 to 2026</p><h2>Make open finance useful before trying to make it famous.</h2><p class="case-deck">I owned the Mexico communications and marketing narrative across product launches, PR, customer stories, executive visibility and field programmes.</p>
-        <div class="case-brief"><div><span>Mandate</span><p>Give a regulated B2B fintech one coherent market story, then make it work for media, customers, prospects and Sales.</p></div><div><span>What I saw</span><p>“Open finance” was the category. Better credit decisions, verification and collection were the stories people could actually use.</p></div></div>
-        <h3>What I did</h3><ul class="compact-list"><li>I turned product capabilities into positioning, audience-specific messages and useful launch stories.</li><li>I built customer proof and connected launches, spokespeople, field programmes and commercial follow-up.</li><li>I worked hands-on across Product, Sales, Customer Success, Partnerships, Data, leadership and agencies.</li></ul>
+      <div class="case-body"><p class="eyebrow">Belvo · 2024 to 2026</p><h2>Make open finance useful before trying to make it famous.</h2><p class="case-deck">I connected the Mexico communications and marketing narrative across product positioning, launches, PR, customer proof, executive visibility, field programmes, CRM and measurement.</p>
+        <div class="case-brief"><div><span>Mandate</span><p>Give a regulated B2B fintech one coherent market story, then make it useful for media, customers, prospects and Sales.</p></div><div><span>What I saw</span><p>“Open finance” was the category. Better credit decisions, verification and collection were the jobs people could recognize. The useful story had to begin there.</p></div></div>
+        <h3>What I did</h3><ul class="compact-list"><li>I translated product capabilities into audience segmentation, positioning, messages, launch stories and Sales enablement.</li><li>I built customer evidence and connected launches, spokespeople, media relations, field programmes and lifecycle follow-up.</li><li>I worked hands-on across Product, Sales, Customer Success, Partnerships, Data, leadership and agencies, then used reporting to adjust the next move.</li></ul>
         ${metricCard(impactMetrics[0])}
         <div class="number-notes"><div><strong>1,729</strong><span>MQLs in 2025 · +129.6% YoY across the integrated Mexico programme</span></div><div><strong>US$722.9K</strong><span>event-sourced ACV in 2024 · +362% YoY</span></div><div><strong>12+</strong><span>launches supported across product, partnerships and customer proof</span></div></div>
+        <h3>How the evidence changed the plan</h3>
+        <div class="insight-ledger" data-reveal>
+          <article><span>High-intent behaviour</span><strong>Forms were doing real commercial work.</strong><p>More than half of inbound closed-won opportunities in the strategy review came through Contact Us and sign-up forms; product pages converted 300+ qualified leads in 2024. That made conversion paths and useful product content a priority, not a footer task.</p></article>
+          <article><span>Q4 2025 · demand to revenue signal</span><strong>10,175 views → 330 submissions → 14 inbound wins</strong><p>Contact Us converted at 3.24%; submissions rose 35.3% YoY. Inbound closed-won deals reached 14, up 16.7%. Event-created ACV reached US$219.4K, up 113% YoY. Each number has its own denominator.</p></article>
+          <article><span>Q1 2026 · market signal</span><strong>20 mentions · 45.2K LinkedIn impressions · 13 event leads</strong><p>Thirty-six percent of coverage was Tier 1 and Belvo appeared in two industry reports. Page views rose 19.6%, unique visitors 13.6%, comments 104.5% and shares 127.8%. Two hosted events and FinTech México formed the reported field programme.</p></article>
+        </div>
+        <div class="team-context"><strong>Team context, not a solo claim.</strong><p>The wider 2024 marketing programme associated marketing-led initiatives with US$1.6M in new ARR; inbound and events represented 60% of closed-won deal count. I use that context to show the system I worked inside, not to claim every dollar.</p></div>
         <div class="evidence-pair">
           ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Newspaper story about the Belvo and Clip open-finance partnership', label:'PR outcome', caption:'Partnership story in print.'})}
           ${evidenceImage({src:'/assets/media/belvo-jpmorgan-press.webp', width:'1010', height:'1280', alt:'Print coverage of financial solutions from Belvo and J.P. Morgan', label:'PR outcome', caption:'A technical proposition translated for a business audience.'})}
         </div>
         <h3>Public evidence</h3><ul class="source-list"><li>${external('https://belvo.com/es/author/ximena-aguirre/', 'My Belvo author archive')}</li><li>${external('https://fastcompany.mx/author/federica-gregorini/', 'Federica Gregorini: Fast Company columns')}</li><li>${external('https://belvo.com/es/blog/belvo-payjoy-financiamiento-celulares-mexico-datos-empleo/', 'PayJoy + employment-data customer story')}</li><li>${external('https://belvo.com/es/blog/smart-fit-belvo-pagos-recurrentes-open-finance/', 'Smart Fit + recurring payments story')}</li><li>${external('https://belvo.com/es/blog/belvo-banco-azteca-verificaciones-ingresos-credito/', 'Banco Azteca + income-verification story')}</li><li>${external('https://www.youtube.com/playlist?list=PLBp3o9hAmq8taGzI6hOop8VhGpL8SUrHF', 'Fintech Heroes: video playlist')}</li></ul>
-        <div class="reconstruction"><strong>Evidence note.</strong> Public links verify the visible work. Performance figures come from documented portfolio records; underlying dashboards remain confidential.</div>
+        <div class="reconstruction"><strong>Evidence note.</strong> Public links verify visible work. Performance figures come from dated marketing plans and dashboard exports. Programme outcomes were shared across teams; underlying CRM records, budgets and account data remain confidential.</div>
+      </div>
+    </article>
+    <article class="case-study" id="thinky">
+      <aside class="case-side"><div class="case-number">02</div><div class="case-tags"><span class="tag">PR strategy</span><span class="tag">Thought leadership</span><span class="tag">Creator economy</span><span class="tag">Measurement</span></div></aside>
+      <div class="case-body"><p class="eyebrow">ThinkY · 2024 to 2025</p><h2>Make the thinking visible, not just the award.</h2><p class="case-deck">I built the communications proposal and co-led a PR system designed to position a creator-marketing agency as a strategic, data-informed business partner—not only the team behind a winning campaign.</p>
+        <div class="case-brief"><div><span>Mandate</span><p>Turn campaign work, founder expertise and fast-moving creator-market signals into a credible, repeatable point of view for business and marketing media.</p></div><div><span>What I saw</span><p>Award news could open the door, but authority needed a source of truth: useful analysis, proof, expert voices and a rhythm that did not depend on client announcements.</p></div></div>
+        <h3>What I did</h3><ul class="compact-list"><li>I developed the communications proposal, narrative territories, editorial cadence, spokesperson roles and measurement framework.</li><li>I co-led stories around TikTok Ad Awards, UGC versus advocacy, Netflix and creator-market trends, then adapted the argument for interviews, bylines and LinkedIn.</li><li>I used monthly reporting to identify the subjects and formats earning quality attention, while tightening approval owners, timing and follow-through.</li></ul>
+        <div class="outcome outcome-context"><strong>41</strong><span>placements in the documented programme recap.</span><p>The work built a more strategic public narrative around creativity, technology, data and business outcomes.</p></div>
+        <div class="number-notes"><div><strong>28</strong><span>placements in Tier 1 media · almost 70% of the total</span></div><div><strong>76.7M</strong><span>reported reach across the programme recap</span></div><div><strong>MXN 5.5M</strong><span>modelled PR value · a media-equivalency estimate, not revenue</span></div></div>
+        <h3>What the reporting taught us</h3>
+        <div class="insight-ledger" data-reveal>
+          <article><span>13-month record · Feb 2024 to Mar 2025</span><strong>40 hits · 3.07 per month · 102% of KPI</strong><p>68.3% of placements were Tier 1 and sentiment was reported as 100% positive. Awards and market analysis consistently produced the strongest interest.</p></article>
+          <article><span>March campaign snapshot</span><strong>One timely story → 3 Tier 1 hits</strong><p>A TikTok Awards angle linked to Netflix produced 1,022,988 reported impressions and US$29,900 in modelled PR value. Timing and a specific proof point did more work than generic agency news.</p></article>
+          <article><span>November snapshot</span><strong>8 hits · 75% Tier 1 · 38.6M impressions</strong><p>The report recorded 100% positive sentiment and US$100,998 in modelled PR value. Three internal LinkedIn sessions helped the team carry the narrative beyond earned media.</p></article>
+        </div>
+        <h3>Public evidence</h3><ul class="source-list"><li>${external('https://www.youtube.com/watch?v=LyVIk0WbSZo', 'ThinkY founders: strategy, creativity and technology')}</li><li>${external('https://roastbrief.com.mx/2025/02/como-thinky-brillo-en-los-tiktok-ad-awards-una-entrevista-con-maripi-lissarrague/', 'Roastbrief: Maripi Lissarrague and the TikTok Ad Awards')}</li><li>${external('https://www.youtube.com/watch?v=TrwQLhySimU', 'Founder interview: campaign thinking and results')}</li></ul>
+        <div class="reconstruction"><strong>Attribution note.</strong> I authored the proposal and co-led strategy and execution with ThinkY’s team. Reach and PR value are reporting-model estimates, not audited revenue; I do not claim independent editorial decisions as my authorship.</div>
       </div>
     </article>
     <article class="case-study" id="ladrillos">
-      <aside class="case-side"><div class="case-number">02</div><div class="case-tags"><span class="tag">PR</span><span class="tag">Executive</span><span class="tag">Events</span><span class="tag">Proptech</span></div></aside>
+      <aside class="case-side"><div class="case-number">03</div><div class="case-tags"><span class="tag">PR</span><span class="tag">Executive</span><span class="tag">Events</span><span class="tag">Proptech</span></div></aside>
       <div class="case-body"><p class="eyebrow">100 Ladrillos · 2023 to 2024</p><h2>Trust before attention.</h2><p class="case-deck">Fractional real-estate investing attracts curiosity and scrutiny at the same time. The communications job was to support growth without inflating certainty.</p>
         <div class="case-brief"><div><span>Mandate</span><p>Build confidence around an unfamiliar investment model for an investor community of roughly 40,000 people.</p></div><div><span>What I saw</span><p>The mechanism had to become visible: how it works, who participates, where the limits are and what proof exists.</p></div></div>
         <h3>What I did</h3><ul class="compact-list"><li>Shifted publicity from product claims toward education, evidence and credible external voices.</li><li>Led agency work, founder preparation, investor events and issue-response protocols.</li><li>Built news hooks around milestones that already mattered to the business.</li></ul>
@@ -510,7 +540,7 @@ const caseStudies = layout({
       </div>
     </article>
     <article class="case-study" id="wework">
-      <aside class="case-side"><div class="case-number">03</div><div class="case-tags"><span class="tag">Internal comms</span><span class="tag">Change</span><span class="tag">Leadership</span></div></aside>
+      <aside class="case-side"><div class="case-number">04</div><div class="case-tags"><span class="tag">Internal comms</span><span class="tag">Change</span><span class="tag">Leadership</span></div></aside>
       <div class="case-body"><p class="eyebrow">WeWork · 2022 to 2023</p><h2>Internal communications is operating infrastructure.</h2><p class="case-deck">My six-month regional mandate was to make leadership communication more consistent, useful and responsive for more than 2,000 colleagues.</p>
         <div class="case-brief"><div><span>Mandate</span><p>Create a reliable internal rhythm across leadership updates, newsletters, all-hands and messaging channels.</p></div><div><span>What I saw</span><p>During change, fragmented channels are not a style problem. They are an operational risk.</p></div></div>
         <h3>What I did</h3><ul class="compact-list"><li>Mapped audience needs, channel roles and decision owners.</li><li>Built editorial cadences, leader kits and fast-response pathways for sensitive moments.</li><li>Used employee questions and feedback signals to close the loop.</li></ul>
@@ -524,7 +554,7 @@ const caseStudies = layout({
       </div>
     </article>
     <article class="case-study" id="zendesk">
-      <aside class="case-side"><div class="case-number">04</div><div class="case-tags"><span class="tag">Regional PR</span><span class="tag">Localization</span><span class="tag">B2B SaaS</span></div></aside>
+      <aside class="case-side"><div class="case-number">05</div><div class="case-tags"><span class="tag">Regional PR</span><span class="tag">Localization</span><span class="tag">B2B SaaS</span></div></aside>
       <div class="case-body"><p class="eyebrow">Zendesk · 2020 to 2022</p><h2>Localization is not translation.</h2><p class="case-deck">A global customer-experience thesis only travels when every market sees its own tension, evidence and credible voice in it.</p>
         <div class="case-brief"><div><span>Mandate</span><p>Coordinate PR across Mexico, Chile, Argentina, Peru, Colombia and the Caribbean without fragmenting the global story.</p></div><div><span>What I saw</span><p>Consistency belonged in the argument. Relevance belonged in the proof, examples, media angle and spokesperson.</p></div></div>
         <h3>What I did</h3><ul class="compact-list"><li>Built a shared message spine and a market-by-market angle matrix.</li><li>Coordinated agencies, spokespeople, briefings, assets and launch timing.</li><li>Turned research into interviews, live conversations and sustained news hooks.</li></ul>
@@ -538,7 +568,7 @@ const caseStudies = layout({
       </div>
     </article>
     <article class="case-study" id="expok">
-      <aside class="case-side"><div class="case-number">05</div><div class="case-tags"><span class="tag">Agency</span><span class="tag">CSR / ESG</span><span class="tag">Team lead</span></div></aside>
+      <aside class="case-side"><div class="case-number">06</div><div class="case-tags"><span class="tag">Agency</span><span class="tag">CSR / ESG</span><span class="tag">Team lead</span></div></aside>
       <div class="case-body"><p class="eyebrow">Expok · 2019 to 2020</p><h2>Purpose is not a press angle.</h2><p class="case-deck">CSR programmes become credible stories through specific people, places, trade-offs and evidence, not through a longer list of activities.</p>
         <div class="case-brief"><div><span>Mandate</span><p>Lead multiple accounts, each with different audiences, risks and approval cultures, without making the work formulaic.</p></div><div><span>What I saw</span><p>Local consequence was the bridge between a corporate programme and a story another person might care about.</p></div></div>
         <h3>What I did</h3><ul class="compact-list"><li>Led a three-person PR team and accounts including Toks, Mabe, LTH, Cemex and Universidad Anáhuac.</li><li>Developed angles, media materials, executive copy and review standards.</li><li>Connected programme activity to larger sustainability and community narratives.</li></ul>
@@ -552,7 +582,7 @@ const caseStudies = layout({
       </div>
     </article>
     <article class="case-study" id="field">
-      <aside class="case-side"><div class="case-number">06</div><div class="case-tags"><span class="tag">Field marketing</span><span class="tag">Sales alignment</span><span class="tag">Attribution</span></div></aside>
+      <aside class="case-side"><div class="case-number">07</div><div class="case-tags"><span class="tag">Field marketing</span><span class="tag">Sales alignment</span><span class="tag">Attribution</span></div></aside>
       <div class="case-body"><p class="eyebrow">Cross-company operating system</p><h2>The room is not the result.</h2><p class="case-deck">An event matters when the right people enter with a reason to talk and leave inside a coordinated commercial motion.</p>
         <div class="case-brief"><div><span>Mandate</span><p>Turn field marketing from a logistics calendar into an account, narrative and pipeline discipline.</p></div><div><span>What I saw</span><p>Scan counts were obscuring the real questions: whom did we move, what did we learn and what happens next?</p></div></div>
         <ol class="process-line"><li><span>01</span><b>Thesis</b><small>Audience + tension</small></li><li><span>02</span><b>Accounts</b><small>Owners + intent</small></li><li><span>03</span><b>Moment</b><small>Room + content</small></li><li><span>04</span><b>24h SLA</b><small>Context + action</small></li><li><span>05</span><b>Learning</b><small>Opportunity + decision</small></li></ol>
@@ -562,7 +592,7 @@ const caseStudies = layout({
       </div>
     </article>
     <article class="case-study" id="ai">
-      <aside class="case-side"><div class="case-number">07</div><div class="case-tags"><span class="tag">LLMs</span><span class="tag">Content operations</span><span class="tag">Human review</span></div></aside>
+      <aside class="case-side"><div class="case-number">08</div><div class="case-tags"><span class="tag">LLMs</span><span class="tag">Content operations</span><span class="tag">Human review</span></div></aside>
       <div class="case-body"><p class="eyebrow">Content Cosmos · Belvo</p><h2>I built an AI workflow around the context people kept rebuilding.</h2><p class="case-deck">I wanted a faster way to create useful content without losing the product truth, the market nuance or the voice behind it.</p>
         <div class="case-brief"><div><span>What I built</span><p>I worked with engineering on an internal AI-enabled editorial workflow using LLMs, Cursor and GitHub.</p></div><div><span>What made it useful</span><p>I structured approved product knowledge, brand voice, market context and editorial standards before generation began.</p></div></div>
         <ol class="ai-case-flow"><li><span>01</span><strong>I selected the sources.</strong><p>Product knowledge and approved material came before prompts.</p></li><li><span>02</span><strong>I shaped the context.</strong><p>I encoded audience, voice, market and editorial rules.</p></li><li><span>03</span><strong>I designed the outputs.</strong><p>The system created first drafts, variants and faster multi-market localisation for SEO and GEO-informed content.</p></li><li><span>04</span><strong>I kept people accountable.</strong><p>Humans reviewed facts, claims, cultural nuance, legal sensitivity and final voice.</p></li></ol>
@@ -660,8 +690,8 @@ const voiceGroups = [
   {
     company: 'ThinkY · founder positioning',
     people: 'Maripi Lissarrague · Delfina Peralta Ramos',
-    contribution: 'I supported founder positioning around creativity, technology and the thinking behind campaigns, not just the award headline.',
-    proof: 'Joint founder interview + a four-award TikTok Ad Awards story',
+    contribution: 'I built the communications proposal and co-led founder positioning around creativity, technology, market data and the thinking behind campaigns—not just the award headline.',
+    proof: '41 placements · 28 Tier 1 · 76.7M reported reach in the documented programme recap',
     links: [
       ['Founder interview', 'https://www.youtube.com/watch?v=LyVIk0WbSZo'],
       ['Maripi · Roastbrief', 'https://roastbrief.com.mx/2025/02/como-thinky-brillo-en-los-tiktok-ad-awards-una-entrevista-con-maripi-lissarrague/'],
@@ -762,35 +792,35 @@ const writing = layout({
 });
 
 const about = layout({
-  title: 'About | Ximena Aguirre',
-  description: 'I am a senior communications and Product Marketing leader who connects people, product, story and growth across Europe and Latin America.',
+  title: 'About Ximena Aguirre | Senior Marketing & Communications',
+  description: 'About Ximena Aguirre, a Madrid-based senior Marketing and Communications leader connecting people, product, story, data and growth across Europe and Latin America.',
   path: '/about/',
   schema: true,
-  body: `${pageHero('About', 'I am interested in people before I am interested in channels.', 'I love connecting. I want to know what people are living, what moves them and what would help them understand each other. That is why I do this work.', [['Scope', 'Europe + Latin America'], ['Practice', 'Comms · Product · Field'], ['Languages', 'Spanish · English'], ['Experience', '10 years']])}
+  body: `${pageHero('About Ximena', 'I learn the context before I choose the channel.', 'I want to know what people are living, what the product really changes, where the market is different and what the business needs next. That curiosity is the thread through my work.', [['Base', 'Madrid, Spain'], ['Scope', 'Europe + Latin America'], ['Practice', 'Comms · Product · Field'], ['Experience', '10 years']])}
   <section class="section"><div class="site-shell about-story"><div><p class="eyebrow">The honest version</p><blockquote class="quote">I ask questions until the complicated thing becomes clear enough to share.</blockquote></div><div class="measure"><p class="lede">My career makes sense when I tell it as a story about curiosity.</p><p>I started in teams where a message had to earn attention and produce a response. Then I moved through public affairs, luxury fashion and social impact, where context changed everything. Regional PR taught me that translation is not the same as relevance. Internal communications taught me that trust begins with the people already inside the company.</p><p>Product Marketing, field and lifecycle brought me even closer to the business. I learned to turn product truth into positioning, carry it through a launch or a live room, give the lead to Sales with context and return to the data to see what we should do differently next time.</p><p>I am warm, direct and quick to learn. I am comfortable with senior decisions and with the detailed work that makes those decisions real. I like connecting people who use different language and helping them see that they are solving the same problem.</p></div></div></section>
-  <section class="section section-light"><div class="site-shell"><p class="eyebrow">What stays constant</p><div class="note-grid note-grid-three"><article class="note"><strong>I listen for the real question.</strong><p>I pay attention to what is said, what is avoided and what the audience is actually trying to solve.</p></article><article class="note"><strong>I learn the world quickly.</strong><p>I get close to the product, the category and the people who live the market before I recommend a story.</p></article><article class="note"><strong>I connect the last mile.</strong><p>I care about how the message lands, who follows up, what the data says and what the team learns.</p></article></div></div></section>
+  <section class="section section-light"><div class="site-shell"><p class="eyebrow">What stays constant</p><div class="note-grid note-grid-three"><article class="note"><strong>I listen for the real question.</strong><p>I pay attention to what is said, what is avoided and what the audience is actually trying to solve.</p></article><article class="note"><strong>I learn the world quickly.</strong><p>I get close to the product, category, customers and market data before I recommend a story.</p></article><article class="note"><strong>I connect the last mile.</strong><p>I care about how the message lands, who follows up, what the evidence says and what the team learns next.</p></article></div></div></section>
   <section class="section"><div class="site-shell"><div class="section-heading section-heading-row"><div><p class="eyebrow">My timeline</p><h2>Every role has its own place in the story.</h2></div><p>I have worked across nonprofit, public sector, agency, SaaS, workplace, proptech, fintech and the creator economy. I keep each experience visible because each one taught me something different.</p></div>${careerTimeline()}</div></section>`
 });
 
 const resume = layout({
-  title: 'Résumé | Ximena Aguirre',
-  description: 'My résumé across Communications, Product Marketing, PR, Field, CRM, lead generation and AI-enabled content operations.',
+  title: 'Résumé | Senior Marketing & Communications | Ximena Aguirre',
+  description: 'Ximena Aguirre’s résumé across corporate and internal communications, PR, Product Marketing, Field Marketing, CRM, demand generation, GTM and AI content operations.',
   path: '/resume/',
   body: `${pageHero('Résumé', 'Senior Communications, Product Marketing, PR & Field Leader', 'I connect employees, leaders, products, media, customers, events and commercial teams across Europe and Latin America.', [['Scope', 'Europe + Latin America'], ['Authorization', 'Spain · no sponsorship required'], ['Languages', 'Spanish · English'], ['Education', 'BA Communication']])}
   <section class="section-tight no-print"><div class="site-shell"><div class="hero-actions"><button class="button button-solid" type="button" data-print>Print / save as PDF</button><a class="button" href="${linkedin}" target="_blank" rel="noopener noreferrer">Request a copy on LinkedIn</a></div></div></section>
-  <section class="section"><div class="site-shell split"><div><p class="eyebrow">Profile</p><h2>I connect the story to the business.</h2></div><div><p class="lede">I have ten years across internal and external communications, PR, Product Marketing, field, lifecycle and content. I can shape the positioning, prepare the voice, run the launch, build the CRM journey and read what moved.</p><p class="kicker-line"><strong>Core:</strong> Product positioning · GTM launches · Internal and external communications · PR and media relations · Field marketing · CRM and lead generation · Executive visibility · Reputation · Data and measurement · AI content operations</p></div></div></section>
+  <section class="section"><div class="site-shell split"><div><p class="eyebrow">Profile</p><h2>I connect the story to the business.</h2></div><div><p class="lede">I have ten years across corporate and internal communications, PR, Product Marketing, field, lifecycle and content. I can shape the positioning, prepare the voice, run the launch, build the CRM journey and read what moved.</p><p class="kicker-line"><strong>Core:</strong> Product positioning · GTM launches · Internal and change communications · PR and media relations · Thought leadership · Reputation · Field marketing · Event strategy · CRM and lifecycle · Demand generation · Sales enablement · Customer marketing · SEO content · Marketing analytics · Attribution · AI content operations</p></div></div></section>
   <section class="section section-light"><div class="site-shell"><div class="section-heading section-heading-row"><div><p class="eyebrow">Experience</p><h2>One role at a time.</h2></div><p>I keep every company and project separate. My earlier work is not a footnote. It is where I learned team leadership, lead generation, public responsibility, creator work and account craft.</p></div>${careerTimeline({ detailed: true })}</div></section>
   <section class="section"><div class="site-shell split split-even"><div><p class="eyebrow">Tools + systems</p><h2>I learn the tool, then build the habit around it.</h2></div><div><p><strong>CRM, lead generation + measurement:</strong> HubSpot, Salesforce, Tableau, Power BI</p><p><strong>Content + collaboration:</strong> WordPress, Notion, Figma, Jira, Asana</p><p><strong>Media + research:</strong> Meltwater, Cision/Gorkana, SEMrush</p><p><strong>Events:</strong> Eventbrite, Luma, StreamYard</p><p><strong>LLMs + AI workflows:</strong> ChatGPT, Gemini, Claude, NotebookLM, Cursor, GitHub</p><p class="kicker-line"><strong>Applied AI project:</strong> I worked with engineering to build Content Cosmos, an internal LLM-enabled editorial workflow grounded in approved product knowledge, brand voice, market context and human review.</p></div></div></section>
   <section class="section-tight"><div class="site-shell"><p class="small"><strong>Education:</strong> BA in Communication, Universidad Panamericana, 2014 to 2018. · <strong>Contact:</strong> ${external(linkedin, 'LinkedIn')} · ${external(github, 'GitHub')}</p><p class="small muted">I label performance figures as portfolio records and keep confidential dashboards, private company materials and former work contact details private.</p></div></section>`
 });
 
 const recruiter = layout({
-  title: '90-Second Recruiter View | Ximena Aguirre',
-  description: 'My concise recruiter view across communications, Product Marketing, PR, field, lead generation, data and AI content operations.',
+  title: '90-Second Recruiter View | Marketing & Communications',
+  description: 'A concise recruiter view of Ximena Aguirre across corporate communications, PR, Product Marketing, Field Marketing, GTM, demand generation, data and AI operations.',
   path: '/recruiter/',
   body: `${pageHero('My 90-second recruiter view', 'I connect communications, product and growth.', 'I work across internal and external communications, PR, Product Marketing, field and lifecycle. I set the narrative, align the people around it and stay close enough to execute and measure it.', [['Experience', '10 years'], ['Markets', 'Europe + Latin America'], ['Languages', 'Spanish · English'], ['Work status', 'Authorized in Spain']])}
-  <section class="section-tight"><div class="site-shell"><p class="eyebrow">Results in one line</p><div class="recruiter-results"><div><strong>19 → 42</strong><span>quarterly media mentions</span><small>Belvo Mexico · Q1 2024 to Q4 2025</small></div><div><strong>1,729</strong><span>MQLs in 2025</span><small>Belvo Mexico · +129.6% YoY</small></div><div><strong>US$722.9K</strong><span>event-sourced ACV</span><small>Belvo · 2024 · +362% YoY</small></div><div><strong>+78%</strong><span>regional media exposure</span><small>Zendesk · six-month regional period</small></div><div><strong>2,000+</strong><span>colleagues served</span><small>WeWork · internal communications</small></div></div></div></section>
-  <section class="section"><div class="site-shell split"><div class="sticky-label"><p class="eyebrow">Best evidence</p><h2>Three cases to open first.</h2></div><div class="case-list"><a class="case-row" href="/case-studies/#belvo"><span class="case-index">01</span><div><h3>Belvo</h3><p>Integrated Mexico narrative, launches, customer proof and field pipeline.</p></div><p>Best for: B2B fintech · GTM · Comms leadership</p><span class="case-arrow">↗</span></a><a class="case-row" href="/case-studies/#zendesk"><span class="case-index">02</span><div><h3>Zendesk</h3><p>A multi-market PR localization engine.</p></div><p>Best for: regional roles · SaaS · external comms</p><span class="case-arrow">↗</span></a><a class="case-row" href="/case-studies/#field"><span class="case-index">03</span><div><h3>Field system</h3><p>Event thesis through opportunity measurement.</p></div><p>Best for: field marketing · sales alignment · pipeline</p><span class="case-arrow">↗</span></a></div></div></section>
+  <section class="section-tight"><div class="site-shell"><p class="eyebrow">Results in one line</p><div class="recruiter-results"><div><strong>19 → 42</strong><span>quarterly media mentions</span><small>Belvo Mexico · Q1 2024 to Q4 2025</small></div><div><strong>1,729</strong><span>MQLs in 2025</span><small>Belvo Mexico · +129.6% YoY</small></div><div><strong>US$219.4K</strong><span>event-created ACV</span><small>Belvo · Q4 2025 · +113% YoY</small></div><div><strong>41 / 28</strong><span>placements / Tier 1</span><small>ThinkY · documented PR recap</small></div><div><strong>+78%</strong><span>regional media exposure</span><small>Zendesk · six-month regional period</small></div><div><strong>2,000+</strong><span>colleagues served</span><small>WeWork · internal communications</small></div></div></div></section>
+  <section class="section"><div class="site-shell split"><div class="sticky-label"><p class="eyebrow">Best evidence</p><h2>Four cases to open first.</h2></div><div class="case-list"><a class="case-row" href="/case-studies/#belvo"><span class="case-index">01</span><div><h3>Belvo</h3><p>Integrated Mexico narrative, product launches, customer proof and field pipeline.</p></div><p>Best for: B2B fintech · GTM · Comms leadership</p><span class="case-arrow">↗</span></a><a class="case-row" href="/case-studies/#thinky"><span class="case-index">02</span><div><h3>ThinkY</h3><p>A data-informed PR and thought-leadership system for the creator economy.</p></div><p>Best for: reputation · agency narrative · measurement</p><span class="case-arrow">↗</span></a><a class="case-row" href="/case-studies/#zendesk"><span class="case-index">03</span><div><h3>Zendesk</h3><p>A multi-market PR localization engine.</p></div><p>Best for: regional roles · SaaS · external comms</p><span class="case-arrow">↗</span></a><a class="case-row" href="/case-studies/#wework"><span class="case-index">04</span><div><h3>WeWork</h3><p>Internal communications infrastructure for 2,000+ colleagues.</p></div><p>Best for: internal comms · change · leadership</p><span class="case-arrow">↗</span></a></div></div></section>
   <section class="section section-dark"><div class="site-shell split split-even"><div><p class="eyebrow">Role fit</p><h2>Where I add the most value.</h2></div><div><p class="lede">I fit Senior, Lead and Manager roles that need one person to connect corporate and internal communications, regional PR, Product Marketing, field, lifecycle and launches.</p><p><strong>I am especially credible in:</strong> complex B2B products, quick category learning, multi-market work, cross-functional leadership, reputation, lead generation, events tied to commercial outcomes and responsible AI-assisted operations.</p><p><strong>I do not position myself as:</strong> a pure paid-growth specialist, a social-only creator or a software engineer.</p></div></div></section>
   <section class="section"><div class="site-shell split split-even"><div><p class="eyebrow">Practical</p><h2>Ready for the conversation.</h2></div><div><p><strong>Work authorization:</strong> Spain; no sponsorship required</p><p><strong>Languages:</strong> Spanish (native), English (C2)</p><p><strong>Tools:</strong> HubSpot, Salesforce, WordPress, Notion, Figma, Meltwater/Cision, Tableau/Power BI, ChatGPT, Gemini, NotebookLM, Claude, Cursor.</p><div class="hero-actions"><a class="button button-solid" href="/resume/">Open résumé</a><a class="button" href="${linkedin}" target="_blank" rel="noopener noreferrer">Contact on LinkedIn</a></div></div></div></section>`
 });
@@ -803,22 +833,30 @@ const proof = layout({
   <section class="section"><div class="site-shell split"><div><p class="eyebrow">Metric register</p><h2>What each number means.</h2></div><div>
     <details open><summary>10 years</summary><div>I calculate this from my career start in marketing leadership in January 2016 through 2026, rounded down to a whole year.</div></details>
     <details><summary>Europe + Latin America</summary><div>Direct professional scope includes Mexico, Chile, Colombia, Argentina, Peru, the Caribbean and Costa Rica; current base and cross-regional work connect the profile to Spain and broader European teams.</div></details>
-    <details><summary>+121% media mentions</summary><div>Belvo portfolio record: 19 quarterly mentions in Q1 2024 versus 42 in Q4 2025. Arithmetic: (42−19)÷19 = 121.05%, rounded to 121%.</div></details>
-    <details><summary>+129.6% YoY MQLs</summary><div>Belvo portfolio record for 2025 versus 2024; 1,729 MQLs recorded in 2025. The site does not publish underlying CRM exports.</div></details>
-    <details><summary>+35.3% Contact Us submissions</summary><div>Belvo portfolio record for 2025 versus the previous year; 330 submissions were recorded in 2025. I treat this as a higher-intent signal and do not present it as a subset of the MQL figure.</div></details>
-    <details><summary>+38% deals created</summary><div>Belvo portfolio record for Q4 2025 versus Q4 2024; 69 deals were created in Q4 2025. The underlying Salesforce opportunity data remains private.</div></details>
-    <details><summary>+362% event-sourced ACV</summary><div>Belvo portfolio record for 2024 versus 2023; US$722.9K event-sourced ACV recorded in 2024. Account and opportunity data remain private.</div></details>
+    <details><summary>Belvo · 19 → 42 quarterly media mentions (+121%)</summary><div>Mexico programme record: 19 quarterly mentions in Q1 2024 versus 42 in Q4 2025. Arithmetic: (42−19)÷19 = 121.05%, rounded to 121%.</div></details>
+    <details><summary>Belvo · 1,729 MQLs in 2025 (+129.6% YoY)</summary><div>Annual programme record for 2025 versus 2024. This is an integrated marketing result across channels and teams, not a PR-only result. The underlying CRM export remains private.</div></details>
+    <details><summary>Belvo · 330 Contact Us submissions in Q4 2025 (+35.3% YoY)</summary><div>The dated dashboard shows 10,175 Contact Us views, a 3.24% conversion rate and 330 submissions in Q4 2025. I treat this as a higher-intent signal and do not present it as a subset of the annual MQL figure.</div></details>
+    <details><summary>Belvo · 69 deals created in Q4 2025 (+38% YoY)</summary><div>Quarterly dashboard record versus Q4 2024. The same reporting set records 14 inbound closed-won deals, up 16.7% YoY. Underlying Salesforce opportunity data remains private.</div></details>
+    <details><summary>Belvo · US$219.4K event-created ACV in Q4 2025 (+113% YoY)</summary><div>The dashboard reports US$219,350 versus US$102,968 in Q4 2024, an increase of 113.03%. This is annual contract value attached to created opportunities, not booked cash or sole-person attribution.</div></details>
+    <details><summary>Belvo · US$722.9K event-sourced ACV in 2024 (+362% YoY)</summary><div>Annual portfolio record for 2024 versus 2023. Account, attendee and opportunity data remain private.</div></details>
+    <details><summary>Belvo · 2024 wider marketing context</summary><div>A dated plan records US$1.6M in new ARR associated with marketing-led initiatives, 60% of closed-won deal count from inbound and events, and 2,121 contacts from marketing channels. These are team and company context, not individual attribution.</div></details>
+    <details><summary>Belvo · content and conversion evidence</summary><div>The strategy review states that more than half of inbound closed-won opportunities came through Contact Us and sign-up forms, and that product pages converted 300+ qualified leads in 2024. It also records a number-one Mexico ranking for “pago domiciliación bancaria” and number two for “domiciliación bancaria.” These are programme-level findings.</div></details>
+    <details><summary>Belvo · Q1 2026 communications and field snapshot</summary><div>The recap records 20 PR mentions, 36% in Tier 1 media, inclusion in two industry reports, 45.2K LinkedIn impressions, 15.3K page views (+19.6%), 6.8K unique visitors (+13.6%), 738 reactions (+13.1%), 45 comments (+104.5%), 41 shares (+127.8%), 321 Google Business interactions (+16.7%), 237 direction requests (+14.5%), five blog posts, two hosted events and 13 leads across the reported field programme.</div></details>
+    <details><summary>ThinkY · 41 placements, 28 Tier 1, 76.7M reach</summary><div>The documented programme recap labels 41 placements, 28 in Tier 1 media (almost 70%) and more than 76.7M in reported reach. I authored the proposal and co-led the programme with ThinkY’s team.</div></details>
+    <details><summary>ThinkY · MXN 5.5M modelled PR value</summary><div>This is the reporting model’s media-equivalency estimate. It is not revenue, ARR, pipeline or independently audited economic impact.</div></details>
+    <details><summary>ThinkY · 13-month and monthly snapshots</summary><div>A February 2024 to March 2025 report records 40 hits, 3.07 per month, 102% of KPI, 68.3% Tier 1 and 100% positive sentiment. A separate March snapshot records three Tier 1 hits and 1,022,988 impressions from one timely story. A November snapshot records eight hits, 75% Tier 1, 38,597,872 impressions and 100% positive sentiment. Different windows are kept separate.</div></details>
     <details><summary>+78% regional exposure</summary><div>Zendesk portfolio record for a documented six-month period within the 2020 to 2022 regional PR remit. Public coverage examples demonstrate the program; the underlying media report remains private.</div></details>
+    <details><summary>Metrics intentionally not promoted</summary><div>One 2026 deck is titled as a Q1 recap while two acquisition slides label their 205 MQL and 32 inbound-deal figures as Q4. I do not use those numbers as headline claims because the period labels conflict. Q2 targets in the same plan are goals, not results.</div></details>
   </div></div></section>
   <section class="section section-light"><div class="site-shell split split-even"><div><p class="eyebrow">My three evidence classes</p><h2>I label every claim.</h2></div><div><p><strong>Public record:</strong> I link bylines, author archives, company announcements and third-party coverage at a stable URL.</p><p><strong>Performance record:</strong> I use figures documented in my résumé and portfolio, checked for internal consistency but not linked to confidential dashboards.</p><p><strong>Reconstruction:</strong> I demonstrate my actual process with fictional or generalized inputs instead of publishing company material.</p></div></div></section>
   <section class="section"><div class="site-shell"><p class="eyebrow">Intentionally withheld</p><div class="note-grid"><div class="note"><strong>Personal data</strong><p>Phone number, home address and former work contact details.</p></div><div class="note"><strong>Company data</strong><p>CRM exports, account lists, budgets, attendee details and internal dashboards.</p></div><div class="note"><strong>Sensitive context</strong><p>Incident specifics, confidential launch material and internal communications artifacts.</p></div></div></div></section>`
 });
 
 const contact = layout({
-  title: 'Contact | Ximena Aguirre',
-  description: 'Contact me about senior communications, Product Marketing, PR, field, lifecycle and regional leadership opportunities.',
+  title: 'Contact Ximena Aguirre | Marketing & Communications',
+  description: 'Contact Ximena Aguirre in Madrid about senior Marketing and Communications roles, PR, Product Marketing, Field Marketing, GTM or selected projects.',
   path: '/contact/',
-  body: `<section class="section contact-hero"><div class="site-shell contact-layout"><div class="contact-copy"><p class="eyebrow">Contact</p><h1>Tell me what you are trying to make clearer.</h1><p class="lede">I am open to senior international roles and selected projects across Communications, Product Marketing, PR, Field and Lifecycle.</p><p>I am based in Madrid and authorized to work in Spain without sponsorship. You can also <a href="${linkedin}" target="_blank" rel="noopener noreferrer">contact me on LinkedIn</a> or <a href="${github}" target="_blank" rel="noopener noreferrer">see how I build on GitHub</a>.</p></div>${leadForm()}</div></section>`
+  body: `<section class="section contact-hero"><div class="site-shell contact-layout"><div class="contact-copy"><p class="eyebrow">Contact · Madrid</p><h1>Tell me what you are trying to make clearer.</h1><p class="lede">A complex product, a new market, a reputation question, a team in change or a commercial story that is not travelling yet—I am happy to start with the real problem.</p><p>I am open to senior international Marketing and Communications roles and selected projects across PR, Product Marketing, Field Marketing, internal communications, lifecycle and GTM. I am authorized to work in Spain without sponsorship.</p><p>You can also <a href="${linkedin}" target="_blank" rel="noopener noreferrer">contact me on LinkedIn</a> or <a href="${github}" target="_blank" rel="noopener noreferrer">see how I build on GitHub</a>.</p></div>${leadForm('contact')}</div></section>`
 });
 
 const notFound = layout({

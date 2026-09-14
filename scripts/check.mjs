@@ -18,10 +18,24 @@ const errors = [];
 
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
-  if (!/<html lang="en">/.test(html)) errors.push(`${relative(root, file)}: missing language`);
-  if (!/<meta name="description"/.test(html)) errors.push(`${relative(root, file)}: missing description`);
-  if (!/<h1[ >]/.test(html)) errors.push(`${relative(root, file)}: missing h1`);
-  if (!/href="#main"/.test(html) || !/id="main"/.test(html)) errors.push(`${relative(root, file)}: missing skip target`);
+  const name = relative(root, file);
+  if (!/<html lang="en">/.test(html)) errors.push(`${name}: missing language`);
+  if (!/<meta name="description"/.test(html)) errors.push(`${name}: missing description`);
+  const h1Count = (html.match(/<h1\b/g) || []).length;
+  if (h1Count !== 1) errors.push(`${name}: expected one h1, found ${h1Count}`);
+  if (!/href="#main"/.test(html) || !/id="main"/.test(html)) errors.push(`${name}: missing skip target`);
+
+  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+  const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
+  if (duplicateIds.length) errors.push(`${name}: duplicate ids ${duplicateIds.join(', ')}`);
+
+  for (const match of html.matchAll(/<img\b[^>]*>/g)) {
+    if (!/\salt="[^"]*"/.test(match[0])) errors.push(`${name}: image missing alt text`);
+    if (!/\swidth="\d+"/.test(match[0]) || !/\sheight="\d+"/.test(match[0])) errors.push(`${name}: image missing intrinsic dimensions`);
+  }
+  for (const match of html.matchAll(/<iframe\b[^>]*>/g)) {
+    if (!/\stitle="[^"]+"/.test(match[0])) errors.push(`${name}: iframe missing title`);
+  }
 
   const hrefs = [...html.matchAll(/href="(\/[^"#?]*)(?:[#?][^"]*)?"/g)].map((match) => match[1]);
   for (const href of hrefs) {
@@ -31,8 +45,13 @@ for (const file of htmlFiles) {
   }
 }
 
+for (const path of ['index.html', 'contact/index.html']) {
+  const html = await readFile(join(root, path), 'utf8');
+  if (!html.includes('tally.so/embed/obPWZP')) errors.push(`${path}: live contact form missing`);
+}
+
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log(`Checked ${htmlFiles.length} HTML files: metadata, landmarks and internal links pass.`);
+console.log(`Checked ${htmlFiles.length} HTML files: metadata, headings, media, ids, contact form and internal links pass.`);
