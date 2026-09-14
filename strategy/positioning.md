@@ -6,7 +6,7 @@ Madrid-based Senior Communications & Marketing Manager with 10 years across corp
 
 ## Human thesis
 
-Ximena gets close to the product, the people and the execution. She finds the part that needs to make sense, carries it across teams and markets, and stays long enough to see what happened next.
+Ximena has spent ten years moving from communications closer to product, market and commercial decisions. She is strongest when the work crosses functions: a complex category, a high-trust market or several teams that need one clear direction.
 
 ## Search layer
 
@@ -14,11 +14,11 @@ Titles, descriptions, headings, semantic links and structured data use the exact
 
 ## Voice rules
 
-- Start with the tension or human truth, not a self-description.
-- Prefer one short claim per block.
-- Make outcomes concrete and keep denominators visible.
-- Use contractions and varied sentence length; remove résumé language from narrative sections.
-- Be direct without becoming cold, and witty without trying to perform personality.
+- Use a complete thought when the nuance matters; not every section needs a slogan.
+- Let specific nouns, verbs and evidence carry the copy instead of metaphors.
+- Reserve first person for judgment, contribution and experience—not every headline.
+- Keep exact recruiter keywords in metadata, factual labels, the résumé and recruiter view.
+- Vary sentence length without relying on repeated contrast formulas.
 - Attribute team and programme results fairly.
 - Never manufacture reach, precision or causality.
 
@@ -26,12 +26,11 @@ The benchmark blend is: Netflix-style directness and memorable tension; GoCardle
 
 ## Anchor lines
 
-- “I started in communications. Then every good story needed a next step.”
+- “I started in PR. The work kept pulling me closer to the product and the business.”
 - “I like getting close to the thing.”
-- “I like a good story. I like knowing what happened next even more.”
+- “Different questions need different numbers.”
 - “Some of my best writing has someone else’s name on it.”
 - “I disappear into the voice, not the thinking.”
-- “Useful on Monday.”
 
 ## Deliberate exclusions
 

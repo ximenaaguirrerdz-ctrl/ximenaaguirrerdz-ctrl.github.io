@@ -1,6 +1,6 @@
 # Ximena Aguirre — portfolio
 
-> Complex product. Different markets. A lot of people to align. That’s usually where I’m useful.
+> Ten years later, I work across Communications, Product Marketing and Field Marketing for complex B2B technology and fintech.
 
 An editorial, evidence-led portfolio for a Madrid-based Senior Communications & Marketing Manager working across corporate and internal communications, PR, Product Marketing, GTM, Field Marketing, CRM, measurement and applied AI.
 
@@ -9,7 +9,7 @@ An editorial, evidence-led portfolio for a Madrid-based Senior Communications & 
 ## What is here
 
 - `/` — story-first positioning, problem map and evidence
-- `/work/` — selected work across the company, product, market and commercial follow-through
+- `/work/` — selected work across the company, product, market and commercial impact
 - `/case-studies/` — eight contextual case studies, including Belvo and ThinkY
 - `/playbooks/` — open marketing and communications systems
 - `/writing/` — public work with explicit role and attribution labels
