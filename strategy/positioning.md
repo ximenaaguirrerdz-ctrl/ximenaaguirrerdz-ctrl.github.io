@@ -6,7 +6,7 @@ Madrid-based Senior Communications & Marketing Manager with 10 years across corp
 
 ## Human thesis
 
-Ximena has spent ten years moving from communications closer to product, market and commercial decisions. She is strongest when the work crosses functions: a complex category, a high-trust market or several teams that need one clear direction.
+Ximena works where a strong product, smart people and active teams still need a shared version of what matters. She gets close to the product, asks the question others are skipping, finds language people can use and stays close enough to the work to learn what happened next.
 
 ## Search layer
 
@@ -19,6 +19,8 @@ Titles, descriptions, headings, semantic links and structured data use the exact
 - Reserve first person for judgment, contribution and experience—not every headline.
 - Keep exact recruiter keywords in metadata, factual labels, the résumé and recruiter view.
 - Vary sentence length without relying on repeated contrast formulas.
+- Use questions only when they reproduce a real business conversation.
+- Avoid agency-coded language such as “brief” when the work is an in-house business decision.
 - Attribute team and programme results fairly.
 - Never manufacture reach, precision or causality.
 
@@ -26,9 +28,11 @@ The benchmark blend is: Netflix-style directness and memorable tension; GoCardle
 
 ## Anchor lines
 
-- “I started in PR. The work kept pulling me closer to the product and the business.”
+- “That’s usually where I come in.”
+- “My job is to find the version they can all move with.”
+- “I kept getting closer to the decision.”
 - “I like getting close to the thing.”
-- “Different questions need different numbers.”
+- “I like knowing what happened next.”
 - “Some of my best writing has someone else’s name on it.”
 - “I disappear into the voice, not the thinking.”
 
