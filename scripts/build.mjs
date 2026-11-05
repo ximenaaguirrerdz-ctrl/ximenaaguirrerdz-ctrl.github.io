@@ -60,7 +60,7 @@ function personData() {
     name: 'Ximena Aguirre Rodríguez',
     alternateName: 'Ximena Aguirre',
     url: origin,
-    image: `${origin}/assets/media/ximena-aguirre-portrait.webp`,
+    image: `${origin}/assets/media/belvo-clip-partnership-press.webp`,
     jobTitle: 'Senior Communications & Marketing Manager',
     description: 'Madrid-based Senior Communications & Marketing Manager with 10 years across corporate and internal communications, PR and media relations, Product Marketing, GTM, executive communications and Field Marketing for B2B technology and fintech across Europe and Latin America.',
     sameAs: [linkedin, github, belvoAuthor],
@@ -96,28 +96,28 @@ function layout({ title, description, path = '/', body, schema = false }) {
   <meta name="description" content="${description}">
   <meta name="author" content="Ximena Aguirre">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#f2efe7">
+  <meta name="theme-color" content="#1c2229">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=nov2026">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ximena Aguirre">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${canonical}">
-  <meta property="og:image" content="${origin}/assets/media/ximena-aguirre-portrait.webp">
+  <meta property="og:image" content="${origin}/assets/media/belvo-clip-partnership-press.webp">
   <meta property="og:image:alt" content="Ximena Aguirre, Senior Communications and Marketing Manager in Madrid">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${description}">
-  <meta name="twitter:image" content="${origin}/assets/media/ximena-aguirre-portrait.webp">
+  <meta name="twitter:image" content="${origin}/assets/media/belvo-clip-partnership-press.webp">
   ${schema ? `<script type="application/ld+json">${schemaMarkup(schema, canonical)}</script>` : ''}
 </head>
 <body>
   ${header()}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js?v=nov2026" defer></script>
 </body>
 </html>`;
 }
@@ -286,144 +286,78 @@ const impactMetrics = [
 ];
 
 const home = layout({
-  title: 'Ximena Aguirre | PR, Brand & B2B Marketing',
-  description: 'Relationship-led PR, brand positioning and integrated B2B marketing. 10 years connecting customers, founders, Product and Sales across technology markets.',
+  title: 'Ximena Aguirre | PR, Executive Communications & B2B Marketing',
+  description: 'Relationship-led PR, executive thought leadership, customer stories and integrated B2B marketing by Ximena Aguirre.',
   path: '/',
   schema: 'profile',
   body: `
-
-  <section class="p26-hero" aria-labelledby="p26-title">
-    <div class="site-shell p26-hero-grid">
-      <div class="p26-intro">
-        <p class="p26-kicker">Ximena Aguirre · Madrid · Strategic PR + B2B Marketing</p>
-        <h1 id="p26-title">Make complex tech <em>make sense.</em> Then make people care.</h1>
-        <p class="p26-lede">I connect product, people and proof—building stories people trust and relationships that move business forward.</p>
-        <p class="p26-sub">For 10 years I have worked with founders, Product, Sales and customer-facing teams: understanding the ICP and how buyers decide, shaping the narrative, writing it, activating it and learning what happened next.</p>
-        <div class="p26-actions"><a href="/case-studies/" class="p26-cta">Explore selected work ↗</a><a href="#relationships" class="p26-cta p26-cta-secondary">How I work ↓</a></div>
-        <p class="p26-micro">B2B technology + fintech &nbsp; · &nbsp; Spanish + English &nbsp; · &nbsp; Europe + Latin America</p>
+<div class="nf-home" data-theme="smoke">
+  <section class="nf-hero">
+    <div class="site-shell nf-hero-layout">
+      <div class="nf-headline">
+        <p class="nf-kicker"><span class="nf-dot"></span> Ximena Aguirre · Strategic PR + B2B Marketing · Madrid</p>
+        <h1>Good stories <em>build</em> better relationships.</h1>
+        <p class="nf-lead">I help complex products make sense—and give people a reason to trust the company behind them.</p>
+        <p class="nf-description">For the past 10 years I've connected founders, customers, journalists, Product and Sales. I get close to the ICP, learn how the business sells, find the real story and help turn that strategy into something people actually use.</p>
+        <div class="nf-buttons"><a class="nf-button nf-filled" href="#selected-work">Selected work ↗</a><a class="nf-button" href="#relationships">How I work ↓</a></div>
+        <div class="nf-theme" role="group" aria-label="Portfolio visual style"><span>THEME</span><button type="button" data-nf-theme="smoke" aria-pressed="true">Smoke</button><button type="button" data-nf-theme="platinum" aria-pressed="false">Platinum</button></div>
       </div>
-      <div class="p26-board">
-        <div class="p26-board-heading"><span>THE WORK BEHIND THE WORK</span><span class="p26-star" aria-hidden="true">✳</span></div>
-        <ol>
-          <li><span>01</span><div><strong>Know the customer</strong><small>ICP · sales motion · objections · decision makers</small></div></li>
-          <li><span>02</span><div><strong>Find the story</strong><small>Positioning · product truth · human relevance</small></div></li>
-          <li><span>03</span><div><strong>Build and activate</strong><small>Earned · owned · paid collaboration · field</small></div></li>
-          <li><span>04</span><div><strong>Make relationships last</strong><small>Advocacy · partners · introductions · learning</small></div></li>
-        </ol>
-        <p class="p26-board-end">Strategy with people. <em>Built to be used.</em></p>
+      <div class="nf-art" aria-label="Editorial artwork about people, stories, and proof, without any portrait">
+        <span class="nf-art-top">THE WORK BEHIND THE WORK / 01</span>
+        <span class="nf-art-one">PEOPLE</span><span class="nf-art-two">STORY</span><span class="nf-art-three">PROOF</span>
+        <div class="nf-art-note"><small>MY WORKING PRINCIPLE</small><strong>Strategic enough to build trust.<br>Practical enough to get done.</strong></div>
+        <span class="nf-art-star" aria-hidden="true">✳</span>
       </div>
     </div>
-    <div class="site-shell p26-hero-bottom"><span>PR IS A RELATIONSHIP, NOT JUST A PRESS RELEASE.</span><span>Understand → Connect → Prove → Grow</span></div>
+    <div class="site-shell nf-hero-bottom"><span>EUROPE + LATIN AMERICA</span><span>SPANISH + ENGLISH</span><span>STRATEGY + EXECUTION</span></div>
   </section>
-  <section class="p26-proof" aria-label="Selected evidence">
-    <div class="site-shell p26-proof-grid">
-      <a href="/case-studies/#belvo"><span>Customer evidence</span><strong>17</strong><small>customer stories at Belvo</small></a>
-      <a href="/case-studies/#belvo"><span>Product + GTM</span><strong>12+</strong><small>launches and partnerships</small></a>
-      <a href="/case-studies/#zendesk"><span>Earned media</span><strong>+78%</strong><small>regional exposure, six months</small></a>
-      <a href="/case-studies/#wework"><span>Internal trust</span><strong>2,000+</strong><small>employees in communication remit</small></a>
+  <div class="nf-marquee" aria-label="Areas of communications and marketing expertise">
+    <div class="nf-marquee-move"><span>PUBLIC RELATIONS ✳ BRAND ✳ CUSTOMER STORIES ✳ EXECUTIVE THOUGHT LEADERSHIP ✳ PRODUCT MARKETING ✳ FIELD & EVENTS ✳ OWNED / EARNED / PAID ✳ </span><span aria-hidden="true">PUBLIC RELATIONS ✳ BRAND ✳ CUSTOMER STORIES ✳ EXECUTIVE THOUGHT LEADERSHIP ✳ PRODUCT MARKETING ✳ FIELD & EVENTS ✳ OWNED / EARNED / PAID ✳ </span></div>
+  </div>
+  <section class="nf-section" id="approach">
+    <div class="site-shell nf-section-head"><div><p class="nf-kicker">01 / AN INTEGRATED PRACTICE</p><h2>The channel comes <em>after the question.</em></h2></div><p>PR is at the heart of my work, but stories travel further when owned, earned, paid, partners, events and Sales tell the same truth. I build both the strategy and the practical work behind it.</p></div>
+    <div class="site-shell nf-four">
+      <article><span>EARNED</span><h3>Earn attention worth having.</h3><p>Journalists, media relationships, bylines, reputation, spokesperson preparation and executive visibility.</p><a href="/writing/">Writing + media ↗</a></article>
+      <article><span>OWNED</span><h3>Give the story somewhere to live.</h3><p>Customer stories, newsletters, editorial series, product narratives, podcasts, videos and reports.</p><a href="/case-studies/#belvo">Belvo proof ↗</a></article>
+      <article><span>PAID + PARTNERS</span><h3>Make the message travel.</h3><p>Integrated campaign briefs, partnerships, creators, amplification strategy and collaboration with paid-channel specialists.</p><a href="/case-studies/#thinky">Agency collaboration ↗</a></article>
+      <article><span>FIELD + CRM</span><h3>Design the next conversation.</h3><p>Events, executive roundtables, partner moments, post-event follow-up, lifecycle and commercial learning.</p><a href="/case-studies/#field">Field to pipeline ↗</a></article>
     </div>
-    <p class="site-shell p26-footnote">Different employers and reporting periods. Open each case for roles, sources, denominators and attribution.</p>
+    <p class="site-shell nf-note">My contribution is specified in each case; coordinated paid-channel strategy is not presented as hands-on media buying.</p>
   </section>
-  <section class="section p26-channels" id="integrated-practice" aria-labelledby="p26-channels-title">
-    <div class="site-shell">
-      <div class="p26-heading"><p class="p26-kicker">ONE CONNECTED PRACTICE</p><h2 id="p26-channels-title">Earned. Owned. Paid.<br><em>And the people in between.</em></h2><p>I bring strategy and execution together, from a journalist relationship to a customer story, product launch, event or the next Sales conversation. The channel comes after the business problem.</p></div>
-      <div class="p26-channel-grid">
-        <article><span>01 / EARNED</span><h3>Earn attention worth having.</h3><p>Media relations, reputation, executive voices, bylines and industry conversations rooted in real insight.</p><a href="/writing/">Press + writing ↗</a></article>
-        <article><span>02 / OWNED</span><h3>Build where the story lives.</h3><p>Customer stories, narratives, blogs, newsletters, launch content, editorial systems and useful Sales assets.</p><a href="/case-studies/#belvo">Belvo case ↗</a></article>
-        <article><span>03 / PAID + PARTNERS</span><h3>Make the work travel farther.</h3><p>Integrated amplification strategy, campaign briefs, creators, partnerships and collaboration with agencies and paid-channel specialists.</p><a href="/case-studies/#thinky">ThinkY case ↗</a></article>
-        <article><span>04 / FIELD + CRM</span><h3>Design the next conversation.</h3><p>Roundtables, events, partner programmes, lead context, customer follow-up, CRM and commercial learning.</p><a href="/case-studies/#field">Field system ↗</a></article>
-      </div>
-      <p class="p26-footnote">My role varies by engagement. Strategic and creative coordination is not presented as independent media buying; team outcomes and third-party editorial decisions are clearly distinguished.</p>
+  <section class="nf-section nf-relations" id="relationships">
+    <div class="site-shell nf-split"><div><p class="nf-kicker">02 / THE LONG GAME</p><h2>I trust <em>relationships</em> that outlast the first campaign.</h2><p>I want to understand who the buyer is, what Sales hears, what clients need and which relationships already matter. A customer doesn't become a champion because we ask for a quote; that kind of trust grows from listening, making useful work together and staying close.</p><p>I enjoy building those connections—not only with media, but also with customers, experts and partners who can introduce the business to new people over time.</p><a href="/case-studies/#belvo">Customer-storytelling work ↗</a></div><div class="nf-relations-steps"><article><span>01 · UNDERSTAND</span><strong>ICP, buying committee, objections and sales motion.</strong></article><article><span>02 · COLLABORATE</span><strong>Product, Sales, Customer Success, founders and clients.</strong></article><article><span>03 · BUILD EVIDENCE</span><strong>Customer cases, interviews, useful events and shared stories.</strong></article><article><span>04 · STAY CLOSE</span><strong>Champions, introductions, reputation and account growth.</strong></article><aside><span>BELVO / CUSTOMER PROOF</span><b>17 customer stories</b><p>Part of a broader integrated programme with customers and internal teams, not 17 sales deals attributed to PR.</p><a href="/case-studies/#belvo">Read the case ↗</a></aside></div></div>
+  </section>
+  <section class="nf-section" id="selected-work">
+    <div class="site-shell nf-section-head"><div><p class="nf-kicker">03 / SELECTED WORK</p><h2>The story is good. <em>The proof matters.</em></h2></div><a href="/case-studies/">All eight case studies ↗</a></div>
+    <div class="site-shell nf-projects"><a href="/case-studies/#belvo" class="nf-main-project"><span>BELVO · FINTECH · PRODUCT + CUSTOMER STORIES</span><strong>Turning technical products into stories customers can own.</strong><div><b>17</b> customer stories <b>12+</b> launches</div><small>Read case ↗</small></a><a href="/case-studies/#zendesk"><span>ZENDESK · REGIONAL PR</span><strong>One company, six markets, different reasons to care.</strong><div><b>+78%</b> media exposure over six months</div><small>Read case ↗</small></a><a href="/case-studies/#wework"><span>WEWORK · EXECUTIVE + INTERNAL COMMS</span><strong>Leadership communication people could rely on.</strong><div><b>2,000+</b> employees in scope</div><small>Read case ↗</small></a></div>
+    <p class="site-shell nf-note">Distinct roles, periods and outcome types. Sources and attribution limits are available in the cases.</p>
+  </section>
+  <section class="nf-section nf-voices" id="executive-voices">
+    <div class="site-shell nf-section-head"><div><p class="nf-kicker">04 / EXECUTIVE THOUGHT LEADERSHIP</p><h2>Real expertise deserves <em>a real voice.</em></h2></div><p>I work across executive narratives, interviews, editorial programmes, spokesperson preparation and institutional visibility. These are selected leaders connected with the communications programmes I supported, with contribution details in the underlying cases.</p></div>
+    <div class="site-shell nf-voice-grid">
+      <article><span>BELVO / FOUNDERS</span><h3>Pablo Viguera<br>Oriol (Uri) Tintoré</h3><p>Founder and company narrative context in open finance, product evolution and AI-era positioning.</p><a href="https://belvo.com/es/sobre-nosotros/" target="_blank" rel="noopener noreferrer">Company leadership ↗</a></article>
+      <article><span>BELVO / COUNTRY LEADERSHIP</span><h3>Federica Gregorini</h3><p>Executive communications and thought leadership, including five public Fast Company columns.</p><a href="https://fastcompany.mx/author/federica-gregorini/" target="_blank" rel="noopener noreferrer">Published columns ↗</a></article>
+      <article><span>ZENDESK / REGIONAL</span><h3>Alex Barrera<br>Raúl Rodríguez<br>Dubra Valenzuela</h3><p>Regional PR, executive narratives and localized expertise across markets.</p><a href="/writing/#voices">Evidence ↗</a></article>
+      <article><span>WEWORK / LEADERSHIP</span><h3>Álvaro Villar<br>Liliana Méndez</h3><p>Spokesperson support, internal communications and earned visibility.</p><a href="/writing/#voices">Evidence ↗</a></article>
+      <article><span>THINKY / FOUNDERS</span><h3>Maripi Lissarrague<br>Delfina Peralta Ramos</h3><p>Collaborative founder positioning and agency reputation programme.</p><a href="/case-studies/#thinky">Case ↗</a></article>
+      <article><span>TOKS / SUSTAINABILITY</span><h3>Gustavo Pérez Berlanga</h3><p>Sustainability and social-impact communication in the Toks account context at Expok.</p><a href="/case-studies/#expok">Account work ↗</a></article>
+      <article><span>COPRED / INSTITUTIONAL</span><h3>Jacqueline L’Hoist</h3><p>Anti-discrimination public-communications context during my COPRED tenure.</p><a href="https://wradio.com.mx/programa/2018/05/17/asi_las_cosas_ii/1526511385_747391.html" target="_blank" rel="noopener noreferrer">Public evidence ↗</a></article>
+      <article><span>EXPOK / EXPERT VOICES</span><h3>Miguel Ángel Santinelli</h3><p>Corporate responsibility, leadership and institutional communications within agency programmes.</p><a href="/writing/#voices">More examples ↗</a></article>
     </div>
+    <p class="site-shell nf-note">Context in an organisation's communications programme is not a claim of personal authorship of every interview or direct engagement with every listed executive.</p>
   </section>
-  <section class="section p26-relationships" id="relationships" aria-labelledby="relationships-title">
-    <div class="site-shell p26-relationship-grid">
-      <div><p class="p26-kicker">RELATIONSHIPS ARE THE STRATEGY</p><h2 id="relationships-title">Understand how they buy. <em>Earn why they stay.</em></h2><p>PR is the work I keep coming back to. A journalist, partner or client is more than a contact in a spreadsheet. I listen to the people behind the deal, learn the pain points and buying journey, and help translate trust into something useful for both sides.</p><p>That means working closely with Sales, Customer Success, Product and leadership—not waiting until the press release is ready.</p><a href="/case-studies/#belvo" class="p26-text-link">See my customer storytelling work ↗</a></div>
-      <div class="p26-steps">
-        <div><span>01 · LISTEN</span><strong>Understand the ICP and sales motion.</strong><p>Who decides, what they need to believe and where the buyer gets stuck.</p></div>
-        <div><span>02 · CONNECT</span><strong>Get close to the customers.</strong><p>Partner with account teams, learn from product use and build relationships beyond one transaction.</p></div>
-        <div><span>03 · PROVE</span><strong>Turn trust into shared stories.</strong><p>Co-created customer stories, executive content, relevant events and partner conversations.</p></div>
-        <div><span>04 · GROW</span><strong>Let good relationships open doors.</strong><p>Champions, referrals, credibility, new opportunities and feedback that improves the message.</p></div>
-        <aside><span>EXAMPLE · BELVO</span><p>Working with Product, Sales, Customer Success and partners, I helped bring real open-finance customer use cases into market-facing stories. The programme included <b>17 customer stories</b>, without claiming these were individually attributable sales wins.</p><a href="/case-studies/#belvo">Full attributed case ↗</a></aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="section impact-section" aria-labelledby="impact-title">
-    <div class="site-shell">
-      <div class="section-heading section-heading-row"><div><p class="eyebrow">How I measure</p><h2 id="impact-title">I like knowing what happened next.</h2></div><p>Not every useful result belongs in the same column.</p></div>
-      <div class="recruiter-results home-results" data-reveal>
-        <div><strong>+129.6%</strong><span>MQLs YoY</span><small>Belvo Mexico · 2025 vs 2024 · integrated marketing</small></div>
-        <div><strong>+38%</strong><span>Deals created</span><small>Belvo · Q4 2025 vs Q4 2024</small></div>
-        <div><strong>US$722.9K</strong><span>Event-sourced ACV</span><small>Belvo · 2024 · +362% YoY</small></div>
-        <div><strong>+121%</strong><span>Quarterly media mentions</span><small>Belvo Mexico · Q1 2024 to Q4 2025</small></div>
-      </div>
-      <p class="evidence-line"><strong>Different signals use different baselines.</strong> I do not force them into one claim, and I label my contribution to each programme. <a href="/proof/">See the definitions and evidence →</a></p>
+  <section class="nf-section" id="editorial-channels">
+    <div class="site-shell nf-section-head"><div><p class="nf-kicker">05 / EDITORIAL RANGE</p><h2>Choose the channel <em>for the audience.</em></h2></div><p>My experience spans newsletters, podcasts, written and filmed interviews, case studies, press, industry events and integrated campaigns. I also keep an eye on emerging publishing formats—but the audience and objectives come first.</p></div>
+    <div class="site-shell nf-two-lanes">
+      <article><span>DOCUMENTED / CHANNEL EXPERIENCE</span><h3>Work I've created, led or supported.</h3><div class="nf-chips"><span>Earned media</span><span>Executive bylines</span><span>Newsletters</span><span>Customer stories</span><span>Podcasts</span><span>Video</span><span>Fintech Heroes</span><span>Webinars</span><span>Roundtables</span><span>Partner marketing</span></div><p><b>Fintech Heroes:</b> Belvo's industry/customer interview series published in editorial and video formats.</p><a href="https://www.youtube.com/playlist?list=PLBp3o9hAmq8taGzI6hOop8VhGpL8SUrHF" target="_blank" rel="noopener noreferrer">See the playlist ↗</a></article>
+      <article><span>STRATEGIC OPTIONS / TO EVALUATE</span><h3>New editorial spaces worth considering.</h3><div class="nf-chips"><span>Substack</span><span>LinkedIn newsletters</span><span>Founder letters</span><span>Curated industry briefings</span><span>Private peer communities</span><span>Expert audio series</span><span>Interactive reports</span><span>Short video explainers</span><span>Co-published partner editions</span></div><p>These are format possibilities, not claims that I've already launched each one. I would test them against ICP, distribution, editorial effort and business value.</p><a href="/playbooks/">Working systems ↗</a></article>
     </div>
   </section>
-
-  <section class="section section-blue" aria-labelledby="ai-title">
-    <div class="site-shell ai-story">
-      <div class="ai-copy"><p class="eyebrow">Applied AI + content operations</p><h2 id="ai-title">The model could write. Context was the hard part.</h2><p class="lede">Anyone can ask an LLM for a first draft. The harder question is: <strong>what should it know before it starts?</strong></p><p>At Belvo, I worked with engineering on an internal AI-assisted editorial system built around approved product knowledge, market context, brand voice and human review.</p><p>We used AI to make the first pass faster. <strong>Not to decide what was true.</strong></p></div>
-      <div>
-        <ol class="ai-flow" data-reveal><li><span>01</span><strong>Approved truth</strong><small>Product knowledge and source material</small></li><li><span>02</span><strong>Working context</strong><small>Voice, market and editorial rules</small></li><li><span>03</span><strong>LLM draft</strong><small>First passes and useful variants</small></li><li><span>04</span><strong>Human review</strong><small>Facts, claims, nuance and judgment</small></li><li><span>05</span><strong>Market-ready</strong><small>SEO, GEO and local adaptation</small></li></ol>
-        <div class="tool-band"><span>Built with engineering</span><strong>LLMs · Cursor · GitHub</strong><span>My broader toolkit</span><strong>ChatGPT · Gemini · Claude · NotebookLM · Cursor</strong></div>
-        <p class="small"><a href="/case-studies/#ai">Read the full AI case →</a></p>
-      </div>
-    </div>
+  <section class="nf-section nf-independent">
+    <div class="site-shell nf-section-head"><div><p class="nf-kicker">06 / INDEPENDENT PRACTICE</p><h2>Ximena <em>+</em> Lore.</h2></div><div><p>Two senior disciplines in one boutique communications and marketing consultancy. I bring corporate communications, PR, reputation, positioning, GTM and events; Lore brings creators, UGC, social and digital campaigns.</p><a href="https://ximenaylore.github.io/" target="_blank" rel="noopener noreferrer">Explore our consultancy ↗</a><small>This independent work is separate from achievements at previous employers.</small></div></div>
   </section>
-
-  <section class="section" aria-labelledby="human-title">
-    <div class="site-shell">
-      <div class="section-heading section-heading-row"><div><p class="eyebrow">How I work</p><h2 id="human-title">A few things I’ve learned to trust.</h2></div><p>These are the habits behind the work.</p></div>
-      <div class="human-grid" data-reveal>
-        <article><span>How I learn</span><h3>If something sounds simple too quickly, I probably haven’t understood it yet.</h3><p>I ask Product again. I talk to Sales. I look at what customers are actually asking. I read the numbers. Then I simplify.</p><small>Curiosity · active listening · customer orientation · analytical thinking</small></article>
-        <article><span>How I connect</span><h3>The interesting part is often between teams.</h3><p>What Product knows. What leadership wants. What Sales needs. What the customer hears. That gap is usually where the work is.</p><small>Systems thinking · cross-functional leadership · stakeholder influence</small></article>
-        <article><span>How I write</span><h3>Good writing is mostly good thinking with fewer places to hide.</h3><p>I write launches, bylines, executive points of view, customer stories, messaging and internal communications. The sentence gets better when the idea does.</p><small>Creative thinking · writing · executive communications · thought leadership</small></article>
-        <article><span>How I respond</span><h3>Calm is useful.</h3><p>Especially when something changed late, the answer isn’t complete yet or everyone suddenly needs something at once. Figure out what we know. What we don’t. What needs a decision now.</p><small>Resilience · flexibility · change communications · crisis communications</small></article>
-        <article><span>How I use technology</span><h3>New tools are only interesting if they improve the work.</h3><p>I use AI, CRM, analytics, SEO and automation regularly. I’m curious about the technology; I’m more interested in what it lets the team do better.</p><small>AI · technological literacy · continuous learning</small></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-dark" aria-labelledby="voices-title">
-    <div class="site-shell">
-      <div class="section-heading section-heading-row"><div><p class="eyebrow">The voices I have helped carry</p><h2 id="voices-title">Executive communication starts with how the person thinks.</h2></div><p>I turn expertise into a point of view that can live in a column, an interview, a keynote, a podcast or a difficult internal message.</p></div>
-      <div class="voice-ledger" data-reveal>
-        <article><div><span>Belvo</span><h3>Federica Gregorini</h3></div><p>I shaped executive narratives across columns, interviews and live fintech content.</p><strong>5 Fast Company columns</strong><a href="https://fastcompany.mx/author/federica-gregorini/" target="_blank" rel="noopener noreferrer">Open archive ↗</a></article>
-        <article><div><span>Zendesk</span><h3>Alex Barrera · Raúl Rodríguez · Dubra Valenzuela</h3></div><p>I developed regional storylines, executive copy and media moments for different markets and voices.</p><strong>30 Promesas + Forbes + a 4-part editorial series</strong><a href="/writing/#voices">See the evidence ↗</a></article>
-        <article><div><span>100 Ladrillos</span><h3>Iván Carmona · Hugo Blum</h3></div><p>I helped make an unfamiliar investment model clear through founder narratives, media and investor moments.</p><strong>14 items in the public press archive</strong><a href="https://somos.100ladrillos.com/prensa/" target="_blank" rel="noopener noreferrer">Open archive ↗</a></article>
-        <article><div><span>WeWork</span><h3>Álvaro Villar · Liliana Méndez</h3></div><p>I prepared leadership narratives for television, audio and internal channels across the region.</p><strong>TV + podcast + 2,000+ colleagues</strong><a href="/writing/#voices">See the evidence ↗</a></article>
-        <article><div><span>ThinkY</span><h3>Maripi Lissarrague · Delfina Peralta Ramos</h3></div><p>I built the communications proposal and co-led founder positioning around creativity, technology, market data and the business thinking behind the work.</p><strong>41 placements · 28 Tier 1 · 76.7M reported reach</strong><a href="/case-studies/#thinky">Read the case ↗</a></article>
-        <article><div><span>Expok</span><h3>Miguel Ángel Santinelli · Gustavo Pérez</h3></div><p>I translated social-impact expertise into columns, interviews and events grounded in a clear human consequence.</p><strong>CSR + human rights + institutional visibility</strong><a href="/writing/#voices">See the evidence ↗</a></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section visual-proof-section">
-    <div class="site-shell">
-      <div class="section-heading section-heading-row"><div><p class="eyebrow">My work in public</p><h2>Selected public work—and my role in it.</h2></div><p>I label every piece by my actual role: authored, ghostwritten, editorial strategy, spokesperson preparation, media relations or event work.</p></div>
-      <div class="evidence-wall" data-reveal>
-        ${evidenceImage({src:'/assets/media/tedx-universidad-panamericana-event.webp', width:'900', height:'1200', alt:'Speaker on a red-lit TEDx Universidad Panamericana stage', label:'Events', caption:'Speaker narrative, live production and editorial reuse · TEDx Universidad Panamericana'})}
-        ${evidenceImage({src:'/assets/media/wework-alvaro-villar-tv.webp', width:'1280', height:'719', alt:'Álvaro Villar, CEO of WeWork Mexico, in a television interview on ADN40', label:'Media relations', caption:'I prepare executive visibility · WeWork', className:'evidence-wide'})}
-        ${evidenceImage({src:'/assets/media/belvo-clip-partnership-press.webp', width:'1280', height:'808', alt:'Print coverage of the Belvo and Clip open-finance partnership', label:'External communications', caption:'Technical partnership communications · Belvo', className:'evidence-wide'})}
-        ${evidenceImage({src:'/assets/media/expok-toks-bylined-column.webp', width:'1125', height:'1242', alt:'Newspaper page with a corporate responsibility guest column and Toks coverage', label:'Editorial + PR', caption:'Executive voice and earned coverage · Expok'})}
-      </div>
-      <div class="hero-actions"><a class="button button-solid" href="/writing/">Open my writing + media</a><a class="button" href="/work/">See the full body of work</a></div>
-    </div>
-  </section>
-
-
-  <section class="p26-consultancy" aria-labelledby="p26-consultancy-title">
-    <div class="site-shell p26-consultancy-grid"><div><p class="p26-kicker">INDEPENDENT PRACTICE</p><h2 id="p26-consultancy-title">Ximena <em>+</em> Lore</h2><p>Two senior specialties, one people-first way of working. My focus: corporate communications, PR, reputation, positioning, GTM and events. Lore's focus: creators, UGC, social and digital campaigns.</p><small>This independent consultancy is separate from the work, clients and results attributed to my past employers.</small></div><a class="p26-cta" href="https://ximenaylore.github.io/" target="_blank" rel="noopener noreferrer">Visit the consultancy ↗</a></div>
-  </section>
-
-  <section class="section section-light" aria-labelledby="home-contact-title">
-    <div class="site-shell contact-layout">
-      <div class="contact-copy"><p class="eyebrow">Let’s talk</p><h2 id="home-contact-title">Tell me what you’re trying to make happen.</h2><p class="lede">A role, a launch, a new market, a reputation problem, a team in change.</p><p><strong>A short note is enough. The unpolished version is fine.</strong></p><p>You can use the form or <a href="${linkedin}" target="_blank" rel="noopener noreferrer">find me on LinkedIn</a>.</p></div>
-      ${leadForm('home')}
-    </div>
-  </section>`
+  <section class="nf-section nf-last"><div class="site-shell nf-section-head"><div><p class="nf-kicker">MORE THAN A HEADLINE</p><h2>There is more <em>behind the work.</em></h2></div><div class="nf-last-links"><a href="/work/">Selected work ↗</a><a href="/writing/">Writing + media ↗</a><a href="/resume/">Résumé ↗</a><a href="/contact/">Contact ↗</a></div></div></section>
+</div>`
 });
 
 const work = layout({

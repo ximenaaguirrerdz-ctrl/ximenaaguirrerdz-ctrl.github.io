@@ -47,3 +47,17 @@ document.querySelectorAll('[data-filter]').forEach((button) => {
 document.querySelectorAll('[data-print]').forEach((button) => {
   button.addEventListener('click', () => window.print());
 });
+
+// Portfolio themes; progressive enhancement. Smoke remains the default without JS.
+const themeRoot = document.querySelector('.nf-home');
+if (themeRoot) {
+  const themeButtons = [...themeRoot.querySelectorAll('[data-nf-theme]')];
+  const selectTheme = (choice) => {
+    if (!['smoke','platinum'].includes(choice)) return;
+    themeRoot.dataset.theme = choice;
+    themeButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.nfTheme === choice)));
+    try { localStorage.setItem('ximena-portfolio-theme-v2', choice); } catch(_) {}
+  };
+  try { const cached = localStorage.getItem('ximena-portfolio-theme-v2'); if (cached) selectTheme(cached); } catch(_) {}
+  themeButtons.forEach(button => button.addEventListener('click', () => selectTheme(button.dataset.nfTheme)));
+}
